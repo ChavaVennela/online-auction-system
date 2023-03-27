@@ -129,8 +129,8 @@ body {
       </div>
     </div>
     <div class="action">
+    	<button formaction="checkLoginDetails.jsp" autofocus>Submit</button>
     	<button formaction="createNewUser.jsp">Register</button>
-      	<button formaction="checkLoginDetails.jsp">Submit</button>
     </div>
   </form>
 </div>

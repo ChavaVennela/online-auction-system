@@ -20,8 +20,8 @@
 	String newAddress=request.getParameter("address");
 	
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/OnlineAuctionSystem","root",
-	"loveCandy");
+	ApplicationDB DBconnect = new ApplicationDB();
+	Connection con = DBconnect.getConnection();
 	
 	Statement st = con.createStatement();
 	ResultSet rs;
@@ -59,7 +59,7 @@
 			con.close();
 			out.print("insert succeeded");
 			String user=newUserName;
-			response.sendRedirect("success.jsp");
+			response.sendRedirect("UserCreatedPage.jsp");
 			
 		} catch (Exception ex) {
 			out.print(ex);

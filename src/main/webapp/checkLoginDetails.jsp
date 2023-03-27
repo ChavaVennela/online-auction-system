@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.onlineauctionsystem.pkg.*"%>
 <%@ page import ="java.sql.*" %>
 <%
 String userid = request.getParameter("username");
 String pwd = request.getParameter("password");
 Class.forName("com.mysql.jdbc.Driver");
-Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/OnlineAuctionSystem","root",
-"loveCandy");
+ApplicationDB DBconnect = new ApplicationDB();
+Connection con = DBconnect.getConnection();
 Statement st = con.createStatement();
 ResultSet rs;
 rs = st.executeQuery("select * from userlogin where username='" + userid + "' and password='" + pwd
