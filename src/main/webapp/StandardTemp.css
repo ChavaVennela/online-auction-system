@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding-top: 70px;
+}
+
+.titlename {
+	padding-left: 70px;
+	font-size: 30px;
+}
+
+.navelements {
+	padding-left: 100px;
+	font-size: 25px;
+}
+
+.sidebar {
+	height: 100%;
+	width: 240px;
+	background-color: #eeeeee;
+	padding-top: 20px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+}
+.sidebar a {
+	padding: 6px 8px 6px 50px;
+  	text-decoration: none;
+  	font-size: 25px;
+  	color: black;
+  	display: block;
+}
+.sidebar a:hover {
+  color: #3399FF;
+}
+
+.main {
+	margin-left: 240px;
+  	font-size: 28px;
+  	padding: 0px 10px;
+}
