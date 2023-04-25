@@ -42,3 +42,12 @@ body {
   	font-size: 28px;
   	padding: 0px 10px;
 }
+.homepage_img{
+	width: 250px;
+	height: 250px;
+	object-fit: scale-down;
+}
+.homepage_btn{
+	float: center;
+	margin-left:25px;
+}

@@ -1,41 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+String userstring=(String)session.getAttribute("user");
+if ((session.getAttribute("user") == null)) {
+%>
+You are not logged in<br/>
+<a href="login.jsp">Please Login</a>
+<%} 
+else {
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Home</title>
+<link href="StandardTemp.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<t:BaseHtml>
 		<jsp:body>
-			<div class="container mx-4">
+			<div>Welcome ${userstring}</div>
+			<div class="container mx-1">
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="card" style="width:300px">
-							<img class="card-img-top" src="laptopimg.jpg" alt="laptop image">
+							
 						  	<div class="card-body">
 						    	<h4 class="card-title">Laptops</h4>
-						    	<a href="#" class="btn btn-primary">Explore/View Laptops</a>
+						    	<a href="#">
+						    	<img class="card-img-top homepage_img" src="laptopimg.jpg" alt="laptop image">
+						    	<button class="btn btn-primary homepage_btn">Explore/View Laptops</button>
+						    	</a>
 						  	</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="card" style="width:300px">
-							<img class="card-img-top" src="mobileimg.jpg" alt="Mobile image">
+							
 						  	<div class="card-body">
 						    	<h4 class="card-title">Mobiles</h4>
-						    	<a href="#" class="btn btn-primary">Explore/View Mobiles</a>
+						    	<a href="#">
+						    	<img class="card-img-top homepage_img" src="mobileimg.jpg" alt="Mobile image">
+						    	<button class="btn btn-primary homepage_btn">Explore/View Mobiles</button>
+						    	</a>
 						  	</div>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="card" style="width:300px">
-							<img class="card-img-top" src="accessoriesimg.webp" alt="Accessory image">
+							
 						  	<div class="card-body">
-						    	<h4 class="card-title">Mobiles</h4>
-						    	<a href="#" class="btn btn-primary">Explore/View Accessories</a>
+						    	<h4 class="card-title">Accessories</h4>
+						    	<a href="#">
+						    	<img class="card-img-top homepage_img" src="accessoriesimg.webp" alt="Accessory image">
+						    	<button class="btn btn-primary homepage_btn">Explore/View Accessories</button>
+						    	</a>
 						  	</div>
 						</div>
 					</div>
@@ -45,3 +66,6 @@
 	</t:BaseHtml>
 </body>
 </html>
+<%
+}
+%>
