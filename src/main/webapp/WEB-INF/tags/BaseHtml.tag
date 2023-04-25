@@ -41,28 +41,7 @@ integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJ
 	    </div>
 	
 	  	<div class="main">
-	  		<p>This sidebar is of full height (100%) and always shown.</p>
 	  		<p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  <p>Some text some text some text some text..</p>
-			  
 			  <jsp:doBody/>
 			  
 	 	</div>
