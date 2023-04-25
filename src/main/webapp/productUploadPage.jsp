@@ -17,7 +17,7 @@
 					  <div class="form-group row">
 					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Product Title</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" placeholder="Product Title/Name">
+					      <input type="text" class="form-control" id="inputProductname" placeholder="Product Title/Name" style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
@@ -26,7 +26,7 @@
 					  <div class="form-group row">
 					    <label for="inputBrand" class="col-sm-2 col-form-label py-0">Brand</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputBrand" placeholder="Brand Name">
+					      <input type="text" class="form-control" id="inputBrand" placeholder="Brand Name" style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
@@ -35,7 +35,7 @@
 					  <div class="form-group row">
 					    <label for="inputColour" class="col-sm-2 col-form-label py-0">Colour</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputColour" placeholder="Colour of the Product">
+					      <input type="text" class="form-control" id="inputColour" placeholder="Colour of the Product" style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
