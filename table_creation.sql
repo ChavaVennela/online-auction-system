@@ -1,7 +1,7 @@
-CREATE DATABASE  IF NOT EXISTS `OnlineAuctionSystem`
+CREATE DATABASE  IF NOT EXISTS `OnlineAuctionSystem`;
 USE `OnlineAuctionSystem`;
 
-CREATE TABLE `user` (
+CREATE TABLE `userlogin` (
   `name` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL,
   `username` varchar(30) NOT NULL,
@@ -11,6 +11,8 @@ CREATE TABLE `user` (
   `interests` varchar(5000) NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `userlogin` VALUES ('Vennela','chava.vinni@gmail.com','vinni','candy',NULL,NULL,'Laptop'),('Gayathr1','gr485@gmail.com','gaya3','heythere',NULL,NULL,'Mobile'),('Rohit','roh123@gmail.com','roh', 'abcda','415-567-1289','1500 Market St.','Accessory'),('Laxman','sanju@gmail.com','sanju', 'hello','345-567-1289',NULL,'Mobile');
 
 DROP TABLE IF EXISTS `CustomerReps`;
 CREATE TABLE `CustomerReps` (
@@ -36,11 +38,11 @@ DROP TABLE IF EXISTS `BankDetails`;
 CREATE TABLE `BankDetails` (
   `username` varchar(30) NOT NULL,
   `account_num` char(10) NOT NULL,
-  `routing_num` varchar(8) NOT NULL,
-  `bank_name` varchar(10) NOT NULL,
+  `routing_num` varchar(8) DEFAULT NULL,
+  `bank_name` varchar(10) DEFAULT NULL,
    PRIMARY KEY (`account_num`),
    FOREIGN KEY (`username`) 
-   REFERENCES user(`username`)
+   REFERENCES userlogin(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Item` (
@@ -54,13 +56,12 @@ CREATE TABLE `Item` (
   `availability` bool NOT NULL,
    PRIMARY KEY (`Itemid`),
    FOREIGN KEY (`username`) 
-   REFERENCES user(`username`)
+   REFERENCES userlogin(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `ItemDetails`;
 CREATE TABLE `ItemDetails` (
   `Itemid` int NOT NULL,
-  `Itemname` varchar(30) NOT NULL,
   `category` varchar(30) NOT NULL,
   `color` char(10) NOT NULL,
   `brand` varchar(10) NOT NULL,
@@ -77,7 +78,7 @@ CREATE TABLE `Bids` (
   `pricelist` varchar(5000) NOT NULL,
    PRIMARY KEY (`username`,`Itemid`),
    FOREIGN KEY (`username`) 
-   REFERENCES user(`username`),
+   REFERENCES userlogin(`username`),
    FOREIGN KEY (`Itemid`) 
    REFERENCES Item(`Itemid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -90,9 +91,9 @@ CREATE TABLE `Transaction` (
   `Itemid` int NOT NULL,
    PRIMARY KEY (`transaction_id`),
    FOREIGN KEY (`seller_username`) 
-   REFERENCES user(`username`),
+   REFERENCES userlogin(`username`),
    FOREIGN KEY (`buyer_username`) 
-   REFERENCES user(`username`)
+   REFERENCES userlogin(`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `Q/A`;
@@ -103,7 +104,7 @@ CREATE TABLE `Q/A` (
   `answer` varchar(3000) NOT NULL,
    PRIMARY KEY (`username`, `customer_rep`),
    FOREIGN KEY (`username`) 
-   REFERENCES user(`username`),
+   REFERENCES userlogin(`username`),
    FOREIGN KEY (`customer_rep`) 
    REFERENCES CustomerReps(`username`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
