@@ -3,13 +3,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-String userstring=(String)session.getAttribute("user");
-if ((session.getAttribute("user") == null)) {
-%>
-You are not logged in<br/>
-<a href="login.jsp">Please Login</a>
-<%} 
-else {
+/* String userstring=(String)session.getAttribute("user"); */
 %>
 <!DOCTYPE html>
 <html>
@@ -21,7 +15,7 @@ else {
 <body>
 	<t:BaseHtml>
 		<jsp:body>
-			<div>Welcome ${userstring}</div>
+			<div>Welcome ${user}</div>
 			<div class="container mx-1">
 				<div class="row">
 					<div class="col-sm-4">
@@ -29,7 +23,7 @@ else {
 							
 						  	<div class="card-body">
 						    	<h4 class="card-title">Laptops</h4>
-						    	<a href="#">
+						    	<a href="items_display.jsp?category=laptop">
 						    	<img class="card-img-top homepage_img" src="laptopimg.jpg" alt="laptop image">
 						    	<button class="btn btn-primary homepage_btn">Explore/View Laptops</button>
 						    	</a>
@@ -41,7 +35,7 @@ else {
 							
 						  	<div class="card-body">
 						    	<h4 class="card-title">Mobiles</h4>
-						    	<a href="#">
+						    	<a href="items_display.jsp?category=Mobile">
 						    	<img class="card-img-top homepage_img" src="mobileimg.jpg" alt="Mobile image">
 						    	<button class="btn btn-primary homepage_btn">Explore/View Mobiles</button>
 						    	</a>
@@ -53,7 +47,7 @@ else {
 							
 						  	<div class="card-body">
 						    	<h4 class="card-title">Accessories</h4>
-						    	<a href="#">
+						    	<a href="items_display.jsp?category=Accessory">
 						    	<img class="card-img-top homepage_img" src="accessoriesimg.webp" alt="Accessory image">
 						    	<button class="btn btn-primary homepage_btn">Explore/View Accessories</button>
 						    	</a>
@@ -66,6 +60,3 @@ else {
 	</t:BaseHtml>
 </body>
 </html>
-<%
-}
-%>
