@@ -62,10 +62,12 @@ CREATE TABLE `Item` (
 DROP TABLE IF EXISTS `ItemDetails`;
 CREATE TABLE `ItemDetails` (
   `Itemid` int NOT NULL,
+  `Itemname` varchar(30) NOT NULL,
   `category` varchar(30) NOT NULL,
-  `color` char(10) NOT NULL,
-  `brand` varchar(10) NOT NULL,
+  `color` char(10) default NULL,
+  `brand` varchar(10) default NULL,
   `refurbished` bool NOT NULL,
+  `img` LONGBLOB default NULL,
    PRIMARY KEY (`category`,`Itemid`),
    FOREIGN KEY (`Itemid`) 
    REFERENCES Item(`Itemid`)
