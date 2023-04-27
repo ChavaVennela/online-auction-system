@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Auction-web-Home</title>
+<title>Items-Display-page</title>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <link href="./StandardTemp.css" rel="stylesheet" type="text/css">
@@ -39,7 +39,7 @@
 		    <a href="#clients">Clients</a>
 		    <a href="#contact">Contact</a>
 	    </div>
-	    	<div class="main">
+    	<div class="main">
 				<% try {
 					Class.forName("com.mysql.jdbc.Driver");
 					ApplicationDB DBconnect = new ApplicationDB();
@@ -58,7 +58,9 @@
 					<tr>    
 						<td><%= result.getString("Itemid") %></td>
 						<td>
-							<button>view details</button>
+							<a href='SelectedItem.jsp?Itemid=<%= result.getString("Itemid") %>'>
+								<button type="button" class="btn btn-primary">view details</button>
+							</a>
 						</td>
 					</tr>
 				<% }
