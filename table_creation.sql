@@ -67,7 +67,7 @@ CREATE TABLE `ItemDetails` (
   `color` char(10) default NULL,
   `brand` varchar(10) default NULL,
   `refurbished` bool NOT NULL,
-  `img` LONGBLOB default NULL,
+   `imgpath` VARCHAR(255) default NULL,
    PRIMARY KEY (`category`,`Itemid`),
    FOREIGN KEY (`Itemid`) 
    REFERENCES Item(`Itemid`)
