@@ -48,12 +48,14 @@
 				<div class="col-lg-12">
 					<div class="main-box clearfix">
 						<div class="table-responsive">
+						    <h1> ALL Products</h1>
 							<table class="table user-list">
 							<thead>
 								<tr>
 								    <th><span>Itemid</span></th>
 									<th><span>Itemname</span></th>
 									<th><span>Uploaded by</span></th>
+									<th><span>Action</span></th>
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
@@ -77,6 +79,7 @@
 									out.println("<td>" + name + "</td>");
 									out.println("<td>" + username + "</td>");
 									out.println("<td>" + email + "</td>");
+									out.println("<td><form action=\"delete-item.jsp\" method=\"post\"><input type=\"hidden\" name=\"name\" value=\"" + name + "\"><input type=\"submit\" value=\"Delete\"></form></td>");
 									out.println("<td>&nbsp;</td>");
 									out.println("</tr>");
 								}

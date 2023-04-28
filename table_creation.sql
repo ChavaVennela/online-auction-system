@@ -56,6 +56,7 @@ CREATE TABLE `Item` (
    PRIMARY KEY (`Itemid`),
    FOREIGN KEY (`username`) 
    REFERENCES userlogin(`username`)
+   ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `ItemDetails`;
@@ -70,6 +71,7 @@ CREATE TABLE `ItemDetails` (
    PRIMARY KEY (`category`,`Itemid`),
    FOREIGN KEY (`Itemid`) 
    REFERENCES Item(`Itemid`)
+   ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `Bids`;
