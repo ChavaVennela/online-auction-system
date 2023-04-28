@@ -50,7 +50,6 @@
 					if(result.next()){
 			%>
 			<div>
-			
 	    		<h3><%= result.getString("brand")%> <%= result.getString("color")%> </h3>
 	    	</div>
 	    	<hr>
@@ -60,22 +59,54 @@
 	    				Picture
 	    			</div>
 	    			<div class="col">
-	    				Bid and other Info
-	    				<div>
+	    				Ongoing Auction!
+	 <!--    				<div>
 	    					<p>Condition: ... </p>
 	    					<p>Time Left: </p>
-	    				</div>
+	    				</div> -->
 	    				<hr>
 	    				<div>
 	    					<p>Current Bid: <%= result.getString("currentbid") %></p>
-	    					<p>Number of Bids: </p> <!--  should be a link -->
+	    					<p>Number of Bids: </p> 
 	    				</div>
 	    				<div>
-	    					<button type="button" class="btn btn-primary">Place Bid</button>
+	    					<button style="width:200px" type="button" class="btn btn-primary">Place Bid</button>
+	    					<button style="width:200px" type="button" class="btn btn-primary">Bid History</button>
+	    					<ul class = "unordered list">
+	    						<li>No delivery charges!</li>
+					    		<li>Fast and Safe delivery</li>
+					    		<li>15 days return period</li>
+					    		
+							</ul>
 	    				</div>
 	    			</div>
 	    		</div>
 	    	</div>
+	    	<hr>
+	    	<h2 style="colr:red">Product Information</h2>
+	    	<ul class = "unordered list">
+	    		<li>
+	    			<span class = "a-list-item">
+	    				<span class = "a-text-bold">Brand :</span>
+	    				<span>Oneplus</span>
+	    			</span>
+				</li>
+				<li>
+	    			<span class = "a-list-item">
+	    				<span class = "a-text-bold">Color :</span>
+	    				<span>Silver</span>
+	    			</span>
+				</li>
+				<li>
+	    			<span class = "a-list-item">
+	    				<span class = "a-text-bold">Category :</span>
+	    				<span>Mobile</span>
+	    			</span>
+				</li>		    			
+		 </ul>	
+			<hr>
+			<h2>Q/A</h2>
+					
 			<%}
 					else{%>
 					<div>Something Went wrong with the database sorry for inconvenience</div>
