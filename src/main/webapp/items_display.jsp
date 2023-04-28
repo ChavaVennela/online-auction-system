@@ -46,17 +46,18 @@
 					Connection con = DBconnect.getConnection();		
 					Statement stmt = con.createStatement();
 					String category = request.getParameter("category");
-					ResultSet result = stmt.executeQuery("select ItemDetails.Itemid as Itemid from ItemDetails, Item where ItemDetails.category='" + category + "' and Item.Itemid=ItemDetails.Itemid and Item.availability=true");
+					ResultSet result = stmt.executeQuery("select ItemDetails.Itemid, ItemDetails.Itemname, ItemDetails.imgpath as imgpath from ItemDetails, Item where ItemDetails.category='" + category + "' and Item.Itemid=ItemDetails.Itemid and Item.availability=true");
 				%>
 	<table>
 		<tr>    
-			<td>Item ID</td>
+			<td>Item</td>
 			<td>View</td>
 		</tr>
 			<%
-				while (result.next()) { %>
+				while (result.next()) {%>
 					<tr>    
-						<td><%= result.getString("Itemid") %></td>
+						<td><%= result.getString("Itemname") %>
+						<img class="items_display_img" src='product-images/<%= result.getString("imgpath")%>'></td>
 						<td>
 							<a href='SelectedItem.jsp?Itemid=<%= result.getString("Itemid") %>'>
 								<button type="button" class="btn btn-primary">view details</button>

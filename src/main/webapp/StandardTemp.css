@@ -51,3 +51,13 @@ body {
 	float: center;
 	margin-left:25px;
 }
+.selecteditem_img{
+	width: 450px;
+	height: 450px;
+	object-fit: scale-down;
+}
+.items_display_img{
+	width: 350px;
+	height: 350px;
+	object-fit: scale-down;
+}

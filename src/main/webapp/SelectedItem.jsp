@@ -46,11 +46,12 @@
 					Connection con = DBconnect.getConnection();		
 					Statement stmt = con.createStatement();
 					String Itemid = request.getParameter("Itemid");
-					ResultSet result = stmt.executeQuery("Select ItemDetails.Itemid as Itemid, ItemDetails.category as category, ItemDetails.color as color, ItemDetails.brand as brand, ItemDetails.refurbished as refurbished, Item.Price as Price, Item.username as username, Item.expireTime as expireTime, Item.secretsellerprice as secretsellerprice, Item.increment as increment, Item.currentbid as currentbid, Item.availability as availability from ItemDetails, Item where Item.Itemid=ItemDetails.Itemid and Item.Itemid='"+Itemid+"'");
+					ResultSet result = stmt.executeQuery("Select ItemDetails.Itemid as Itemid, ItemDetails.imgpath as imgpath, ItemDetails.category as category, ItemDetails.color as color, ItemDetails.brand as brand, ItemDetails.refurbished as refurbished, Item.Price as Price, Item.username as username, Item.expireTime as expireTime, Item.secretsellerprice as secretsellerprice, Item.increment as increment, Item.currentbid as currentbid, Item.availability as availability from ItemDetails, Item where Item.Itemid=ItemDetails.Itemid and Item.Itemid='"+Itemid+"'");
 					if(result.next()){
+						String path = result.getString("imgpath");
+						/* path="/"+path; */
 			%>
 			<div>
-			
 	    		<h3><%= result.getString("brand")%> <%= result.getString("color")%> </h3>
 	    	</div>
 	    	<hr>
@@ -58,24 +59,53 @@
 	    		<div class="row">
 	    			<div class="col">
 	    				Picture
+	    				<img class="selecteditem_img" src='product-images/<%=path%>'>
 	    			</div>
 	    			<div class="col">
-	    				Bid and other Info
-	    				<div>
-	    					<p>Condition: ... </p>
-	    					<p>Time Left: </p>
-	    				</div>
+	    				Ongoing Auction!
 	    				<hr>
 	    				<div>
 	    					<p>Current Bid: <%= result.getString("currentbid") %></p>
-	    					<p>Number of Bids: </p> <!--  should be a link -->
+	    					<p>Number of Bids: </p> 
 	    				</div>
 	    				<div>
-	    					<button type="button" class="btn btn-primary">Place Bid</button>
+	    					<button style="width:200px" type="button" class="btn btn-primary">Place Bid</button>
+	    					<button style="width:200px" type="button" class="btn btn-primary">Bid History</button>
+	    					<ul class = "unordered list">
+	    						<li>No delivery charges!</li>
+					    		<li>Fast and Safe delivery</li>
+					    		<li>15 days return period</li>
+					    		
+							</ul>
 	    				</div>
 	    			</div>
 	    		</div>
 	    	</div>
+	    	<hr>
+	    	<h2 style="colr:red">Product Information</h2>
+	    	<ul class = "unordered list">
+	    		<li>
+	    			<span class = "a-list-item">
+	    				<span class = "a-text-bold">Brand :</span>
+	    				<span>Oneplus</span>
+	    			</span>
+				</li>
+				<li>
+	    			<span class = "a-list-item">
+	    				<span class = "a-text-bold">Color :</span>
+	    				<span>Silver</span>
+	    			</span>
+				</li>
+				<li>
+	    			<span class = "a-list-item">
+	    				<span class = "a-text-bold">Category :</span>
+	    				<span>Mobile</span>
+	    			</span>
+				</li>		    			
+		 </ul>	
+			<hr>
+			<h2>Q/A</h2>
+					
 			<%}
 					else{%>
 					<div>Something Went wrong with the database sorry for inconvenience</div>
