@@ -3,7 +3,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-/* String userstring=(String)session.getAttribute("user"); */
+
 %>
 <!DOCTYPE html>
 <html>
@@ -23,7 +23,7 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 							
 						  	<div class="card-body">
 						    	<h4 class="card-title">Laptops</h4>
-						    	<a href="items_display.jsp?category=laptop">
+						    	<a href="items_display.jsp?category=Laptop">
 						    	<img class="card-img-top homepage_img" src="laptopimg.jpg" alt="laptop image">
 						    	<button class="btn btn-primary homepage_btn">Explore/View Laptops</button>
 						    	</a>
