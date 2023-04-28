@@ -46,7 +46,7 @@
 					Connection con = DBconnect.getConnection();		
 					Statement stmt = con.createStatement();
 					String category = request.getParameter("category");
-					ResultSet result = stmt.executeQuery("select * from ItemDetails where category='" + category + "'");
+					ResultSet result = stmt.executeQuery("select ItemDetails.Itemid as Itemid from ItemDetails, Item where ItemDetails.category='" + category + "' and Item.Itemid=ItemDetails.Itemid and Item.availability=true");
 				%>
 	<table>
 		<tr>    
