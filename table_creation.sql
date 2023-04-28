@@ -12,12 +12,11 @@ CREATE TABLE `userlogin` (
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `userlogin` VALUES ('Vennela','chava.vinni@gmail.com','vinni','candy',NULL,NULL,'Laptop'),('Gayathr1','gr485@gmail.com','gaya3','heythere',NULL,NULL,'Mobile'),('Rohit','roh123@gmail.com','roh', 'abcda','415-567-1289','1500 Market St.','Accessory'),('Laxman','sanju@gmail.com','sanju', 'hello','345-567-1289',NULL,'Mobile');
-
 DROP TABLE IF EXISTS `CustomerReps`;
 CREATE TABLE `CustomerReps` (
-  `username` varchar(30) NOT NULL,
+  `name` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `addr` varchar(200) DEFAULT NULL,
@@ -67,7 +66,7 @@ CREATE TABLE `ItemDetails` (
   `color` char(10) default NULL,
   `brand` varchar(10) default NULL,
   `refurbished` bool NOT NULL,
-  `img` LONGBLOB default NULL,
+   `imgpath` VARCHAR(255) default NULL,
    PRIMARY KEY (`category`,`Itemid`),
    FOREIGN KEY (`Itemid`) 
    REFERENCES Item(`Itemid`)

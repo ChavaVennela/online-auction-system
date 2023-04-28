@@ -40,38 +40,38 @@
 		    <a href="#contact">Contact</a>
 	    </div>
     	<div class="main">
-				<% try {
-					Class.forName("com.mysql.jdbc.Driver");
-					ApplicationDB DBconnect = new ApplicationDB();
-					Connection con = DBconnect.getConnection();		
-					Statement stmt = con.createStatement();
-					String category = request.getParameter("category");
-					ResultSet result = stmt.executeQuery("select ItemDetails.Itemid as Itemid from ItemDetails, Item where ItemDetails.category='" + category + "' and Item.Itemid=ItemDetails.Itemid and Item.availability=true");
-				%>
-	<table>
-		<tr>    
-			<td>Item ID</td>
-			<td>View</td>
-		</tr>
-			<%
-				while (result.next()) { %>
-					<tr>    
-						<td><%= result.getString("Itemid") %></td>
-						<td>
-							<a href='SelectedItem.jsp?Itemid=<%= result.getString("Itemid") %>'>
-								<button type="button" class="btn btn-primary">view details</button>
-							</a>
-						</td>
-					</tr>
-				<% }
-			DBconnect.closeConnection(con);
-			%>
-		</table>
-
-			
-		<%} catch (Exception e) {
-			out.print(e);
-		}%>
+    	<div class="login-form">
+		  <form method="POST">
+		    <h1>Registration form for Customer Representatives</h1>
+		    <div class="content">
+		      <div class="input-field">
+		        <input type="text" placeholder="Name" name="name" autocomplete="nope" required>
+		      </div>
+		      <div class="input-field">
+		        <input type="text" placeholder="Email" name="email" autocomplete="nope" required>
+		      </div>
+		      <div class="input-field">
+		        <input type="text" placeholder="Username" name="username" autocomplete="nope" required>
+		      </div>
+		      <div class="input-field">
+		        <input type="password" placeholder="Password" name="password" autocomplete="nope" required>
+		      </div>
+		      <div class="input-field">
+		        <input type="password" placeholder="Re-enter Password" name="re_password" autocomplete="nope" required>
+		      </div>
+		      <div class="input-field">
+		        <input type="text" placeholder="Phone Number" name="phone" autocomplete="nope">
+		      </div>
+		      <div class="input-field">
+		        <input type="text" placeholder="Address" name="address" autocomplete="nope">
+		      </div>
+		    </div>
+		    <div class="action">
+		      	<button formaction="AddCustrep.jsp">Submit</button>
+		    </div>
+		  </form>
+		</div>
+				
 		</div>
     </div>
 </body>
