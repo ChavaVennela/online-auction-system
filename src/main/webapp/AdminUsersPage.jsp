@@ -1,17 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+    pageEncoding="UTF-8" import="com.onlineauctionsystem.pkg.*"%>
+<!--Import some libraries that have classes that we need -->
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User list page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Items-Display-page</title>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link href="./StandardTemp.css" rel="stylesheet" type="text/css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-	<t:BaseHtml>
-		<jsp:body>
-		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand titlename" href="#">OAS</a>
+	    <div class="collapse navbar-collapse" id="navbarCollapse">
+	      <ul class="navbar-nav me-auto mb-2 mb-md-0 navelements">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="#">Link</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link">Disabled</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	
+	<div>
+    	<div class="sidebar">
+		    <a href="#about">About</a>
+		    <a href="#services">Services</a>
+		    <a href="#clients">Clients</a>
+		    <a href="#contact">Contact</a>
+		    
+		 </div>
+    	<div class="main">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -26,27 +57,46 @@
 									<th>&nbsp;</th>
 								</tr>
 							</thead>
-							<tr>
-								<td>Mila Kunis</td>
-								<td>MK</td>
-								<td>hello@gmail.com</td>								
-								<td style="width: 20%;">
-								<a href="#" class="table-link danger">
-									<span class="fa-stack">
-									<i class="fa fa-square fa-stack-2x"></i>
-									<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-									</span>
-								</a>
-						    </td>
-							</tr>
+							<tbody>
+							<%
+								// Connect to the database
+								Class.forName("com.mysql.jdbc.Driver");
+								ApplicationDB DBconnect = new ApplicationDB();
+								Connection con = DBconnect.getConnection();
+								Statement stmt = con.createStatement();
+								// Retrieve data from the userlogin table
+								ResultSet rs = stmt.executeQuery("SELECT * FROM userlogin");
+								
+								// Loop through the data and generate table rows
+								while (rs.next()) {
+									String name = rs.getString("name");
+									String username = rs.getString("username");
+									String email = rs.getString("email");
+									
+									out.println("<tr>");
+									out.println("<td>" + name + "</td>");
+									out.println("<td>" + username + "</td>");
+									out.println("<td>" + email + "</td>");
+									out.println("<td>&nbsp;</td>");
+									out.println("</tr>");
+								}
+								
+								// Clean up
+								rs.close();
+								stmt.close();
+								con.close();
+							%>
+							</tbody>
 							
 						  </table>  
 						</div>
 					</div>
 				</div>	
 			</div>
-		</div>					
-		</jsp:body>
-	</t:BaseHtml>
+		</div>
+	    
+				
+		</div>
+    </div>
 </body>
 </html>
