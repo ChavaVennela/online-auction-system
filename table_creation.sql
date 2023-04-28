@@ -14,8 +14,9 @@ CREATE TABLE `userlogin` (
 
 DROP TABLE IF EXISTS `CustomerReps`;
 CREATE TABLE `CustomerReps` (
-  `username` varchar(30) NOT NULL,
+  `name` varchar(50) NOT NULL DEFAULT '',
   `email` varchar(50) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `password` varchar(50) NOT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `addr` varchar(200) DEFAULT NULL,
