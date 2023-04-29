@@ -58,11 +58,10 @@
 	    	<div class="container">
 	    		<div class="row">
 	    			<div class="col">
-	    				Picture
 	    				<img class="selecteditem_img" src='product-images/<%=path%>'>
 	    			</div>
 	    			<div class="col">
-	    				Ongoing Auction!
+	    				Ongoing Auction! <p>Closes at: <%=result.getString("expireTime") %>
 	    				<hr>
 	    				<div>
 	    					<p>Current Bid: <%= result.getString("currentbid") %></p>
