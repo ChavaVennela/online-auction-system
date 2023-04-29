@@ -35,12 +35,11 @@
 	<div>
     	<div class="sidebar">
 		    <a href="#about">About</a>
-		    <a href="#services">Services</a>
+		    <a href="UserEditDetails.jsp">Profile</a>
 		    <a href="#clients">Clients</a>
 		    <a href="#contact">Contact</a>
 	    </div>
 		<div class="main">
-		<div>${user}</div>
 			<% try {
 					Class.forName("com.mysql.jdbc.Driver");
 					ApplicationDB DBconnect = new ApplicationDB();
