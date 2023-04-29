@@ -16,7 +16,8 @@ INSERT INTO `ItemDetails` VALUES (5,'SonyXM5','Accessory','White','Sony',0,'head
 
 
 INSERT INTO `Transaction` VALUES (1, 'roh', 'sanju', 6), (2, 'roh', 'sanju', 5), (3, 'vinni', 'sanju', 1), (4, 'roh', 'sanju', 4);
-
+INSERT INTO `BankDetails` VALUES('vinni','9876543210','637373','abk')
+INSERT INTO `BankDetails` VALUES('dm','9876543210','637373','abk')
 
 CREATE EVENT update_item
 ON SCHEDULE EVERY 1 minute
