@@ -87,19 +87,19 @@
 	    		<li>
 	    			<span class = "a-list-item">
 	    				<span class = "a-text-bold">Brand :</span>
-	    				<span>Oneplus</span>
+	    				<span><%= result.getString("brand") %></span>
 	    			</span>
 				</li>
 				<li>
 	    			<span class = "a-list-item">
 	    				<span class = "a-text-bold">Color :</span>
-	    				<span>Silver</span>
+	    				<span><%= result.getString("color") %></span>
 	    			</span>
 				</li>
 				<li>
 	    			<span class = "a-list-item">
 	    				<span class = "a-text-bold">Category :</span>
-	    				<span>Mobile</span>
+	    				<span><%= result.getString("category") %></span>
 	    			</span>
 				</li>		    			
 		 </ul>	
