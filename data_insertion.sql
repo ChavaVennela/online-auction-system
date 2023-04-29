@@ -14,6 +14,9 @@ INSERT INTO `ItemDetails` VALUES (3,'iphone12','Mobile','silver','apple',0,'ipho
 INSERT INTO `Item` VALUES (5, 300,'roh','2023-06-06 10:10:10',1200,50,1100, 1), (6, 400,'roh','2023-06-06 10:10:10',1200,100,1100, 1);
 INSERT INTO `ItemDetails` VALUES (5,'SonyXM5','Accessory','White','Sony',0,'headphone.jpg'), (6,'boat','Accessory','black','Boat',0,'boatearphones.jpg');
 
+INSERT INTO `BankDetails` VALUES('vinni','9876543210','637373','abk')
+INSERT INTO `BankDetails` VALUES('dm','9876543210','637373','abk')
+
 
 CREATE EVENT update_item
 ON SCHEDULE EVERY 1 minute
