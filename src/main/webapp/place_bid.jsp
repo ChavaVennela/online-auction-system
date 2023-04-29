@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Selected-Item-Page</title>
+<title>Place-Bid-Page</title>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <link href="./StandardTemp.css" rel="stylesheet" type="text/css">
@@ -40,6 +40,7 @@
 		    <a href="#contact">Contact</a>
 	    </div>
 		<div class="main">
+		<div>${user}</div>
 			<% try {
 					Class.forName("com.mysql.jdbc.Driver");
 					ApplicationDB DBconnect = new ApplicationDB();
@@ -51,61 +52,39 @@
 						String path = result.getString("imgpath");
 						/* path="/"+path; */
 			%>
-			<div>
-	    		<h3><%= result.getString("brand")%> <%= result.getString("color")%> </h3>
-	    	</div>
-	    	<hr>
 	    	<div class="container">
 	    		<div class="row">
-	    			<div class="col">
-	    				Picture
-	    				<img class="selecteditem_img" src='product-images/<%=path%>'>
-	    			</div>
-	    			<div class="col">
-	    				Ongoing Auction!
-	    				<hr>
+	   	    			<div class="col">
 	    				<div>
 	    					<p>Current Bid: <%= result.getString("currentbid") %></p>
-	    					<p>Number of Bids: </p> 
-	    				</div>
-	    				<div>
-	    					<a href="place_bid.jsp?Itemid=<%= result.getString("Itemid")%>"><button style="width:200px" type="button" class="btn btn-primary">Place Bid</button></a>
-	    					<button style="width:200px" type="button" class="btn btn-primary">Bid History</button>
-	    					<ul class = "unordered list">
-	    						<li>No delivery charges!</li>
-					    		<li>Fast and Safe delivery</li>
-					    		<li>15 days return period</li>
-					    		
-							</ul>
+	    					<p>Minimum Increment Amount: <%= result.getString("increment") %></p>
+	    					<form method="POST">
+							    <div class="content">
+							      <div class="input-field">
+							        <p>Your Bid:<% int value = Integer.parseInt(result.getString("currentbid"))+Integer.parseInt(result.getString("increment"));%>
+							   		<input type="number" id="placedbid" name="placedbid" min=<%=value %>></p>
+							      </div>
+							    </div>
+							    <div class="action">
+							    	<button formaction="updatebid.jsp?Itemid=<%= result.getString("Itemid")%>" id="submit" class="btn btn-primary" disabled>Submit</button>
+							    	<button formaction="SelectedItem.jsp?Itemid=<%= result.getString("Itemid")%>" class="btn btn-primary">Cancel</button>
+							    </div>
+							</form>
+							<script>
+							  var bidplaced = document.getElementById("placedbid");
+							  var submit = document.getElementById("submit");
+							  bidplaced.addEventListener("input", function() {
+							    if(bidplaced.checkValidity()) {
+							      submit.disabled = false;
+							    } else {
+							      submit.disabled = true;
+							    }
+							  });
+							</script>
 	    				</div>
 	    			</div>
 	    		</div>
-	    	</div>
-	    	<hr>
-	    	<h2 style="colr:red">Product Information</h2>
-	    	<ul class = "unordered list">
-	    		<li>
-	    			<span class = "a-list-item">
-	    				<span class = "a-text-bold">Brand :</span>
-	    				<span><%= result.getString("brand") %></span>
-	    			</span>
-				</li>
-				<li>
-	    			<span class = "a-list-item">
-	    				<span class = "a-text-bold">Color :</span>
-	    				<span><%= result.getString("color") %></span>
-	    			</span>
-				</li>
-				<li>
-	    			<span class = "a-list-item">
-	    				<span class = "a-text-bold">Category :</span>
-	    				<span><%= result.getString("category") %></span>
-	    			</span>
-				</li>		    			
-		 </ul>	
-			<hr>
-			<h2>Q/A</h2>
-					
+	    	</div>	
 			<%}
 					else{%>
 					<div>Something Went wrong with the database sorry for inconvenience</div>
