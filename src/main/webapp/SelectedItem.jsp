@@ -58,7 +58,6 @@
 	    	<div class="container">
 	    		<div class="row">
 	    			<div class="col">
-	    				Picture
 	    				<img class="selecteditem_img" src='product-images/<%=path%>'>
 	    			</div>
 	    			<div class="col">
@@ -75,7 +74,6 @@
 	    						<li>No delivery charges!</li>
 					    		<li>Fast and Safe delivery</li>
 					    		<li>15 days return period</li>
-					    		
 							</ul>
 	    				</div>
 	    			</div>
