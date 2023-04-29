@@ -61,3 +61,6 @@ body {
 	height: 350px;
 	object-fit: scale-down;
 }
+.col-sm-10{
+	width: 70%;
+}

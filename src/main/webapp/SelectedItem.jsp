@@ -21,8 +21,8 @@
 	        <li class="nav-item">
 	          <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
 	        </li>
-	        <li class="nav-item">
-	          <a class="nav-link" href="#">Link</a>
+	         <li class="nav-item">
+	          <a class="nav-link" href="logout.jsp">Logout</a>
 	        </li>
 	        <li class="nav-item">
 	          <a class="nav-link">Disabled</a>
@@ -77,7 +77,7 @@
 	    				else{%>
 	    					<button id="place_bid" onclick="location.href='place_bid.jsp?Itemid=<%= result.getString("Itemid")%>'" style="width:200px" type="button" class="btn btn-primary">Place Bid</button>
 	    				<%} %>	
-	    					<button style="width:200px" type="button" class="btn btn-primary">Bid History</button>
+	    					<button onclick="location.href='bidHistory.jsp?Itemid=<%= result.getString("Itemid")%>'" style="width:200px" type="button" class="btn btn-primary">Bid History</button>
 	    					<ul class = "unordered list">
 	    						<li>No delivery charges!</li>
 					    		<li>Fast and Safe delivery</li>

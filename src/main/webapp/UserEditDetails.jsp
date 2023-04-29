@@ -13,7 +13,34 @@
 <link href="./StandardTemp.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<h2>User Information</h2>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand titlename" href="#">OAS</a>
+	    <div class="collapse navbar-collapse" id="navbarCollapse">
+	      <ul class="navbar-nav me-auto mb-2 mb-md-0 navelements">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
+	        </li>
+	         <li class="nav-item">
+	          <a class="nav-link" href="logout.jsp">Logout</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link">Disabled</a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	
+	<div>
+    	<div class="sidebar">
+		    <a href="#about">About</a>
+		    <a href="#services">Services</a>
+		    <a href="#clients">Clients</a>
+		    <a href="#contact">Contact</a>
+	    </div>
+	    <div class="main">
+			<h2>User Information</h2>
 			
 	<%
 	try {
@@ -29,10 +56,9 @@
 		<% 
 		if(result.next()){
 	 %>
-	 		
-			<form action="updateUser" method="post">
+			<form method="POST">
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Username</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Username</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("username")%>' style="width:50%;">
 					    </div>
@@ -41,7 +67,7 @@
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Email</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Email</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("email")%>' style="width:50%;">
 					    </div>
@@ -50,7 +76,7 @@
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Password</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Password</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("password")%>' style="width:50%;">
 					    </div>
@@ -59,7 +85,7 @@
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Account_number</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Account number</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("account_num")%>' style="width:50%;">
 					    </div>
@@ -68,7 +94,7 @@
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Routing_number</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Routing number</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("routing_num")%>' style="width:50%;">
 					    </div>
@@ -77,7 +103,7 @@
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0">Bank_Name</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Bank Name</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("bank_num")%>' style="width:50%;">
 					    </div>
@@ -87,21 +113,12 @@
 					  </div>
 					  	 <div class="form-group row">
 					  	 <div class="col-sm-10">
-					  	 	<!-- <table>
-					  	 		<tr>
-									out.println("<td><form action=\"deleteuserself.jsp\" method=\"post\"><input type=\"hidden\" name=\"username\" value=\"" + username + "\"><input type=\"submit\" value=\"Delete\"></form></td>");
-					  	 		</tr>
-					  	 	</table> -->
 						</div>
-
-					<!-- <script>
-					    function deleteAccount() {
-					        // perform any necessary validation here
-					        // redirect to the delete confirmation page
-					        window.location.href = "delete_confirmation.jsp";
-					    }
-					</script> -->
 					  </div>
+					  <div class="action">
+				    	<button formaction="deleteuserself.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete my Account</button>
+				    	<button formaction="home.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
+				    </div>
 					</form>
 					
 			<%}
@@ -114,5 +131,7 @@
 							} catch (Exception e) {
 					out.print(e);
 			}%>
+			</div>
+		</div>
 </body>
 </html>

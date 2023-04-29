@@ -41,7 +41,7 @@ CREATE TABLE `BankDetails` (
   `bank_name` varchar(10) DEFAULT NULL,
    PRIMARY KEY (`account_num`),
    FOREIGN KEY (`username`) 
-   REFERENCES userlogin(`username`)
+   REFERENCES userlogin(`username`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Item` (
@@ -81,9 +81,9 @@ CREATE TABLE `Bids` (
   `pricelist` varchar(5000) NOT NULL,
    PRIMARY KEY (`username`,`Itemid`),
    FOREIGN KEY (`username`) 
-   REFERENCES userlogin(`username`),
+   REFERENCES userlogin(`username`) ON DELETE CASCADE,
    FOREIGN KEY (`Itemid`) 
-   REFERENCES Item(`Itemid`)
+   REFERENCES Item(`Itemid`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `Transaction`;
@@ -94,9 +94,9 @@ CREATE TABLE `Transaction` (
   `Itemid` int NOT NULL,
    PRIMARY KEY (`transaction_id`),
    FOREIGN KEY (`seller_username`) 
-   REFERENCES userlogin(`username`),
+   REFERENCES userlogin(`username`) ON DELETE CASCADE,
    FOREIGN KEY (`buyer_username`) 
-   REFERENCES userlogin(`username`)
+   REFERENCES userlogin(`username`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `Q/A`;
@@ -107,7 +107,7 @@ CREATE TABLE `Q/A` (
   `answer` varchar(3000) NOT NULL,
    PRIMARY KEY (`username`, `customer_rep`),
    FOREIGN KEY (`username`) 
-   REFERENCES userlogin(`username`),
+   REFERENCES userlogin(`username`) ON DELETE CASCADE,
    FOREIGN KEY (`customer_rep`) 
-   REFERENCES CustomerReps(`username`) 
+   REFERENCES CustomerReps(`username`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
