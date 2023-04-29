@@ -49,7 +49,6 @@
 					ResultSet result = stmt.executeQuery("Select ItemDetails.Itemid as Itemid, ItemDetails.imgpath as imgpath, ItemDetails.category as category, ItemDetails.color as color, ItemDetails.brand as brand, ItemDetails.refurbished as refurbished, Item.Price as Price, Item.username as username, Item.expireTime as expireTime, Item.secretsellerprice as secretsellerprice, Item.increment as increment, Item.currentbid as currentbid, Item.availability as availability from ItemDetails, Item where Item.Itemid=ItemDetails.Itemid and Item.Itemid='"+Itemid+"'");
 					if(result.next()){
 						String path = result.getString("imgpath");
-						/* path="/"+path; */
 			%>
 			<div>
 	    		<h3><%= result.getString("brand")%> <%= result.getString("color")%> </h3>
@@ -68,7 +67,16 @@
 	    					<p>Number of Bids: </p> 
 	    				</div>
 	    				<div>
-	    					<a href="place_bid.jsp?Itemid=<%= result.getString("Itemid")%>"><button style="width:200px" type="button" class="btn btn-primary">Place Bid</button></a>
+	    				<%
+	    				String user=(String)session.getAttribute("user");
+	    				if(user.equals(result.getString("username"))){
+	    					%>
+	    					<button id="place_bid" onclick="location.href='place_bid.jsp?Itemid=<%= result.getString("Itemid")%>'" style="width:200px" type="button" class="btn btn-primary" disabled>Place Bid</button>
+	    					
+	    				<% }
+	    				else{%>
+	    					<button id="place_bid" onclick="location.href='place_bid.jsp?Itemid=<%= result.getString("Itemid")%>'" style="width:200px" type="button" class="btn btn-primary">Place Bid</button>
+	    				<%} %>	
 	    					<button style="width:200px" type="button" class="btn btn-primary">Bid History</button>
 	    					<ul class = "unordered list">
 	    						<li>No delivery charges!</li>

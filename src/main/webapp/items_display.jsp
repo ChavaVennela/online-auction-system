@@ -59,9 +59,7 @@
 						<td><%= result.getString("Itemname") %>
 						<img class="items_display_img" src='product-images/<%= result.getString("imgpath")%>'></td>
 						<td>
-							<a href='SelectedItem.jsp?Itemid=<%= result.getString("Itemid") %>'>
-								<button type="button" class="btn btn-primary">view details</button>
-							</a>
+								<button type="button" class="btn btn-primary" onclick="location.href='SelectedItem.jsp?Itemid=<%= result.getString("Itemid") %>'">view details</button>
 						</td>
 					</tr>
 				<% }
