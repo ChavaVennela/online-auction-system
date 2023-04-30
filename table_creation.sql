@@ -93,11 +93,12 @@ CREATE TABLE `Transaction` (
 
 DROP TABLE IF EXISTS `Q/A`;
 CREATE TABLE `Q/A` (
-  `username` varchar(30) NOT NULL,
-  `customer_rep` varchar(3000) NOT NULL,
-  `question` varchar(3000) NOT NULL,
-  `answer` varchar(3000) NOT NULL,
-   PRIMARY KEY (`username`, `customer_rep`),
+  `qaid` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) default NULL,
+  `customer_rep` varchar(3000) default NULL,
+  `question` varchar(3000) default NULL,
+  `answer` varchar(3000) default NULL,
+   PRIMARY KEY (`qaid`),
    FOREIGN KEY (`username`) 
    REFERENCES userlogin(`username`) ON DELETE CASCADE,
    FOREIGN KEY (`customer_rep`) 
