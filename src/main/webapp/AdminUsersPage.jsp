@@ -79,10 +79,7 @@
 									out.println("<td>" + name + "</td>");
 									out.println("<td>" + username + "</td>");
 									out.println("<td>" + email + "</td>");
-									out.println("<td><form action=\"EditEndUser.jsp\" method=\"get\">" +
-								            "<input type=\"hidden\" name=\"username\" value=\"" + username + "\">" +
-								            "<input type=\"submit\" value=\"Edit\"></form></td>");
-									out.println("<td>&nbsp;</td>");
+								    out.println("<td><a href=\"UserEditDetails.jsp?username=" + username + "\" id=\"submit\" class=\"btn btn-primary\">Edit</a></td>");
 									out.println("</tr>");
 								}
 								

@@ -50,7 +50,10 @@
 		Connection con = DBconnect.getConnection();		
 		Statement stmt = con.createStatement();
 		HttpSession ses = request.getSession();
-	    String username = (String)session.getAttribute("user");
+		String username = request.getParameter("username");
+		if(username == null) {
+			username = (String)ses.getAttribute("user");
+		}
 		ResultSet result = stmt.executeQuery("Select BankDetails.account_num as account_num, BankDetails.routing_num as routing_num, BankDetails.bank_name as bank_num, userlogin.username as username, userlogin.email as email, userlogin.phone as phone, userlogin.password as password from BankDetails,userlogin where BankDetails.username=userlogin.username and BankDetails.username ='"+username+"'");
 		%>
 		<% 
