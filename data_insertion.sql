@@ -14,13 +14,11 @@ INSERT INTO `ItemDetails` VALUES (5,'SonyXM5','Accessory','White','Sony',0,'head
 
 
 INSERT INTO `Transaction` VALUES (1, 'roh', 'sanju', 6), (2, 'roh', 'sanju', 5), (3, 'vinni', 'sanju', 1), (4, 'roh', 'sanju', 4);
-INSERT INTO `BankDetails` VALUES('vinni','9876543210','637373','abk');
 
 INSERT INTO `userlogin` VALUES ('Deleteme','d.m@g.com','dm','dm',NULL,NULL,'Laptop');
 INSERT INTO `Item` VALUES (7, 100,'dm','2023-06-06 10:10:10',10,50,10, 1);
 INSERT INTO `ItemDetails` VALUES (7,'Razor Laptop','Laptop','silver','Razor',0,'razerlaptop.jpg');
 INSERT INTO `Transaction` VALUES (5, 'dm', 'sanju', 7);
-INSERT INTO `BankDetails` VALUES('dm','9876543560','687373','abn');
 
 CREATE EVENT update_item
 ON SCHEDULE EVERY 1 minute

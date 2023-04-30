@@ -50,17 +50,20 @@
 		Connection con = DBconnect.getConnection();		
 		Statement stmt = con.createStatement();
 		HttpSession ses = request.getSession();
-	    String username = (String)session.getAttribute("user");
-		ResultSet result = stmt.executeQuery("Select BankDetails.account_num as account_num, BankDetails.routing_num as routing_num, BankDetails.bank_name as bank_num, userlogin.username as username, userlogin.email as email, userlogin.phone as phone, userlogin.password as password from BankDetails,userlogin where BankDetails.username=userlogin.username and BankDetails.username ='"+username+"'");
+		String username = request.getParameter("username");
+		if(username == null) {
+			username = (String)ses.getAttribute("user");
+		}
+		ResultSet result = stmt.executeQuery("Select userlogin.name as name, userlogin.email as email, userlogin.password as password, userlogin.phone as phone, userlogin.addr as address, userlogin.interests as interests from userlogin where userlogin.username = '"+username+"'");
 		%>
 		<% 
 		if(result.next()){
 	 %>
 			<form method="POST">
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Username</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Name</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("username")%>' style="width:50%;">
+					      <input type="text" class="form-control" id="name" value='<%=result.getString("name")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
@@ -69,7 +72,7 @@
 					  <div class="form-group row">
 					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Email</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("email")%>' style="width:50%;">
+					      <input type="text" class="form-control" id="email" value='<%=result.getString("email")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
@@ -78,34 +81,34 @@
 					  <div class="form-group row">
 					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Password</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("password")%>' style="width:50%;">
+					      <input type="text" class="form-control" id="password" value='<%=result.getString("password")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Account number</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Phone</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("account_num")%>' style="width:50%;">
+					      <input type="text" class="form-control" id="phone" value='<%=result.getString("phone")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Routing number</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Address</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("routing_num")%>' style="width:50%;">
+					      <input type="text" class="form-control" id="address" value='<%=result.getString("address")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Bank Name</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Interests</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputProductname" value='<%=result.getString("bank_num")%>' style="width:50%;">
+					      <input type="text" class="form-control" id="interests" value='<%=result.getString("interests")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
@@ -116,6 +119,7 @@
 						</div>
 					  </div>
 					  <div class="action">
+					  	<button formaction="updateUser.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Update</button>
 				    	<button formaction="deleteuserself.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete my Account</button>
 				    	<button formaction="home.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
 				    </div>
