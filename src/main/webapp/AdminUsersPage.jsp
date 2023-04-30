@@ -48,7 +48,7 @@
 				<div class="col-lg-12">
 					<div class="main-box clearfix">
 						<div class="table-responsive">
-						    <h1>All users</h1>
+						    <h1>Customer Representative Dashboard</h1>
 							<table class="table user-list">
 							<thead>
 								<tr>
@@ -79,7 +79,9 @@
 									out.println("<td>" + name + "</td>");
 									out.println("<td>" + username + "</td>");
 									out.println("<td>" + email + "</td>");
-									out.println("<td><form action=\"delete-user.jsp\" method=\"post\"><input type=\"hidden\" name=\"username\" value=\"" + username + "\"><input type=\"submit\" value=\"Delete\"></form></td>");
+									out.println("<td><form action=\"EditEndUser.jsp\" method=\"get\">" +
+								            "<input type=\"hidden\" name=\"username\" value=\"" + username + "\">" +
+								            "<input type=\"submit\" value=\"Edit\"></form></td>");
 									out.println("<td>&nbsp;</td>");
 									out.println("</tr>");
 								}
