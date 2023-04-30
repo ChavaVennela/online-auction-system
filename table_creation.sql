@@ -33,17 +33,6 @@ CREATE TABLE `Admin` (
    PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-DROP TABLE IF EXISTS `BankDetails`;
-CREATE TABLE `BankDetails` (
-  `username` varchar(30) NOT NULL,
-  `account_num` char(10) NOT NULL,
-  `routing_num` varchar(8) DEFAULT NULL,
-  `bank_name` varchar(10) DEFAULT NULL,
-   PRIMARY KEY (`account_num`),
-   FOREIGN KEY (`username`) 
-   REFERENCES userlogin(`username`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 CREATE TABLE `Item` (
   `Itemid` int NOT NULL AUTO_INCREMENT,
   `Price` int NOT NULL,
