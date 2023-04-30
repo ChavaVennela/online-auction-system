@@ -25,4 +25,17 @@ ON SCHEDULE EVERY 1 minute
 DO
   UPDATE Item SET  availability= false WHERE expireTime < NOW();
 
+CREATE EVENT `check_item_expired` 
+ON SCHEDULE EVERY 1 MINUTE
+DO 
+	INSERT INTO Transaction (seller_username, buyer_username, Itemid)
+	SELECT Item.username, Bids.username, Item.Itemid
+	FROM Item INNER JOIN Bids ON Item.Itemid = Bids.Itemid
+	WHERE Item.expireTime < NOW() AND Item.secretsellerprice <= Bids.pricelist 
+	AND Bids.bidId = (SELECT bidId FROM Bids WHERE pricelist = (
+      SELECT MAX(pricelist) FROM Bids WHERE Itemid = Item.Itemid) AND Itemid = Item.Itemid)
+	AND NOT EXISTS (
+    SELECT * FROM Transaction WHERE seller_username = Item.username AND buyer_username = Bids.username AND Itemid = Item.Itemid
+  );
+    
 SET GLOBAL event_scheduler = ON;

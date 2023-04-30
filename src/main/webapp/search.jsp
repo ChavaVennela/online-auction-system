@@ -53,35 +53,31 @@
 				%>
 			<br>
 			<form action="search.jsp" method="get">
-			    <label for="category">Category:</label>
+			    <p><label for="category">Category:</label>
 			    <select id="category" name="category">
 			    	<option value="All_items">All items</option>
 			        <option value="Laptop">Laptop</option>
 			        <option value="Mobile">Mobile</option>
 			        <option value="Accessory">Accessory</option>
-			    </select>
-			    <br>
-			    <label for="searchType">Search by:</label>
+			    </select></p>
+			   <p> <label for="searchType">Search by:</label>
 			    <select id="searchType" name="searchType">
 			    	<option value="feature">feature</option>
 			        <option value="brand">Brand</option>
 			        <option value="color">Color</option>
 			        <option value="name">Name</option>
-			    </select>
-			    <br>
-			    <label for="keyword">Keyword:</label>
-			    <input type="text" id="keyword" name="keyword">
-			    <br>
-			    <label for="sort">Sort by:</label>
+			    </select></p>
+			    <p><label for="keyword">Keyword:</label>
+			    <input type="text" id="keyword" name="keyword"></p>
+			    <p><label for="sort">Sort by:</label>
 			    <select name="sort" id="sort">
 			    	<option value="not_sorted">Not sorted</option>
 			        <option value="expire_asc">Expiry Time (Ascending)</option>
 			        <option value="expire_desc">Expiry Time (Descending)</option>
 			        <option value="bid_asc">Current Bid Price (Ascending)</option>
 			        <option value="bid_desc">Current Bid Price (Descending)</option>
-			    </select>
-			    <br>
-			    <input type="submit" value="Search">
+			    </select></p>
+			   <p> <input type="submit" value="Search"></p>
 			</form>
 			
 			<hr>
