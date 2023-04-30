@@ -59,13 +59,19 @@
 	    					<p>Minimum Increment Amount: <%= result.getString("increment") %></p>
 	    					<form method="POST">
 							    <div class="content">
+							    	<p><input type="checkbox" id="auto_bid" name="auto_bid" value="true" onclick="toggleinput()">
+ 								 	<label for="auto_bid"> Opt for Auto bid</label></p>
 							      <div class="input-field">
 							        <p>Your Bid:<% int value = Integer.parseInt(result.getString("currentbid"))+Integer.parseInt(result.getString("increment"));%>
 							   		<input type="number" id="placedbid" name="placedbid" min=<%=value %>></p>
 							      </div>
+							      <div class="input-field">
+							        <p>Max Limit on this product:
+							   		<input type="number" id="maxlimit" name="maxlimit" min=0></p>
+							      </div>
 							    </div>
 							    <div class="action">
-							    	<button formaction="updatebid.jsp?Itemid=<%= result.getString("Itemid")%>" id="submit" class="btn btn-primary" disabled>Submit</button>
+							    	<button formaction="updatebid.jsp?Itemid=<%= result.getString("Itemid")%>&min_inc=<%=result.getString("increment") %>" id="submit" class="btn btn-primary" disabled>Submit</button>
 							    	<button formaction="SelectedItem.jsp?Itemid=<%= result.getString("Itemid")%>" class="btn btn-primary">Cancel</button>
 							    </div>
 							</form>

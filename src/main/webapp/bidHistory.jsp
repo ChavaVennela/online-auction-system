@@ -71,26 +71,25 @@
 					Connection con = DBconnect.getConnection();		
 					Statement stmt = con.createStatement();
 					String Itemid = request.getParameter("Itemid");
-					ResultSet result = stmt.executeQuery("select * from bids where Itemid='" + Itemid + "'");
+					ResultSet result = stmt.executeQuery("select * from Bids where Itemid='" + Itemid + "'");
 				%>	
 			<table id="bids">
-				<tr>    
+				<tr>
 					<th>User</th>
 					<th>Bid</th>
 				</tr>
-			<%
-				while (result.next()) {%>
-					<tr>    
-						<td><%= result.getString("username") %></td>
-						<td><%= result.getString("pricelist") %></td>
+				<%while(result.next()){
+					%>
+					<tr>
+					<td><%= result.getString("username")%></td>
+					<td><%= result.getString("pricelist")%></td>
 					</tr>
-				<% }
-			DBconnect.closeConnection(con);
-			%>	
-		</table>
-		<button onclick="location.href='SelectedItem.jsp?Itemid=<%= result.getString("Itemid") %>'" style="width:200px" type="button" class="btn btn-primary">Go Back</button>>
+				<% }%>
+			</table>
+			<p><button onclick="location.href='SelectedItem.jsp?Itemid=<%= Itemid %>'" style="padding: 10px 25px;margin: 10px 2px;" type="button" class="btn btn-primary">Go Back</button></p>
 			
-		<%} catch (Exception e) {
+		<% DBconnect.closeConnection(con);
+		} catch (Exception e) {
 			out.print(e);
 		}%>
 		</div>
