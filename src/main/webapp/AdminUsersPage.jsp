@@ -43,12 +43,14 @@
 		    
 		 </div>
     	<div class="main">
+	    	
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="main-box clearfix">
+					    
 						<div class="table-responsive">
-						    <h1>Customer Representative Dashboard</h1>
+						    <h1>All users</h1>
 							<table class="table user-list">
 							<thead>
 								<tr>
@@ -83,6 +85,8 @@
 									out.println("</tr>");
 								}
 								
+								
+								
 								// Clean up
 								rs.close();
 								stmt.close();
@@ -90,11 +94,16 @@
 							%>
 							</tbody>
 							
-						  </table>  
+						  </table>
+						  
+						  
+						    
 						</div>
+						
 					</div>
 				</div>	
 			</div>
+			
 		</div>
 	    
 				

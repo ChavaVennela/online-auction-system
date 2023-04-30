@@ -67,7 +67,8 @@
 		      </div>
 		    </div>
 		    <div class="action">
-		      	<button formaction="AddCustrep.jsp">Submit</button>
+		      	<button formaction="AddCustrep.jsp" class="btn btn-primary">Submit</button>
+		      	
 		    </div>
 		  </form>
 		</div>

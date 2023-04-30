@@ -43,10 +43,13 @@
     	<div class="login-form">
     	 <form method="GET">
 		    <div class="action" style="margin-top: 30px;">
-		      	<button formaction="AdminUsersPage.jsp"> Edit Enduser Details </button>
+		      	<button formaction="AdminUsersPage.jsp" class="btn btn-primary"> Edit Customer Details </button>
 		    </div>
 		    <div class="action" style="margin-top: 30px;">
-		      	<button formaction="AdminProductsPage.jsp"> Edit Auctions/Products Details</button>
+		      	<button formaction="AdminProductsPage.jsp" class="btn btn-primary"> Edit Auctions/Products Details</button>
+		    </div>
+		    <div class="action" style="margin-top: 30px;">
+		      	<button formaction="qna.jsp" class="btn btn-primary">  Customer Questions</button>
 		    </div>
 		  </form>
 		</div>
