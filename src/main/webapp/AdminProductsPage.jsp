@@ -48,13 +48,16 @@
 				<div class="col-lg-12">
 					<div class="main-box clearfix">
 						<div class="table-responsive">
-						    <h1> ALL Products</h1>
+						    <h1> All Products</h1>
 							<table class="table user-list">
 							<thead>
 								<tr>
 								    <th><span>Itemid</span></th>
 									<th><span>Itemname</span></th>
 									<th><span>Uploaded by</span></th>
+									<th><span>Brand</span></th>
+									<th><span>Category</span></th>
+									<th><span>Color</span></th>
 									<th><span>Action</span></th>
 									<th>&nbsp;</th>
 								</tr>
@@ -71,15 +74,22 @@
 								
 								// Loop through the data and generate table rows
 								while (rs.next()) {
-									String name = rs.getString("Itemid");
-									String username = rs.getString("Itemname");
-									String email = rs.getString("username");
+									String Itemid = rs.getString("Itemid");
+									String Itemname= rs.getString("Itemname");
+									String username = rs.getString("username");
+									String brand = rs.getString("brand");
+									String category = rs.getString("category");
+									String color = rs.getString("color");
 									
 									out.println("<tr>");
-									out.println("<td>" + name + "</td>");
+									out.println("<td>" + Itemid + "</td>");
+									out.println("<td>" + Itemname + "</td>");
 									out.println("<td>" + username + "</td>");
-									out.println("<td>" + email + "</td>");
-									out.println("<td><form action=\"delete-item.jsp\" method=\"post\"><input type=\"hidden\" name=\"name\" value=\"" + name + "\"><input type=\"submit\" value=\"Delete\"></form></td>");
+									out.println("<td>" + brand + "</td>");
+									out.println("<td>" + category + "</td>");
+									out.println("<td>" + color + "</td>");
+								    out.println("<td><a href=\"ProductEditDetails.jsp?Itemid=" + Itemid + "\" id=\"submit\" class=\"btn btn-primary\">Edit</a></td>");
+
 									out.println("<td>&nbsp;</td>");
 									out.println("</tr>");
 								}
