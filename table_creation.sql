@@ -45,7 +45,7 @@ CREATE TABLE `BankDetails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `Item` (
-  `Itemid` int NOT NULL,
+  `Itemid` int NOT NULL AUTO_INCREMENT,
   `Price` int NOT NULL,
   `username` varchar(30) NOT NULL,
   `expireTime` DATETIME NOT NULL,
@@ -76,10 +76,13 @@ CREATE TABLE `ItemDetails` (
 
 DROP TABLE IF EXISTS `Bids`;
 CREATE TABLE `Bids` (
+  `bidId` int NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `Itemid` int NOT NULL,
   `pricelist` varchar(5000) NOT NULL,
-   PRIMARY KEY (`username`,`Itemid`),
+  `maxlimit` int default NULL,
+  `autobid1` bool default False,
+   PRIMARY KEY (`bidId`),
    FOREIGN KEY (`username`) 
    REFERENCES userlogin(`username`) ON DELETE CASCADE,
    FOREIGN KEY (`Itemid`) 
@@ -88,7 +91,7 @@ CREATE TABLE `Bids` (
 
 DROP TABLE IF EXISTS `Transaction`;
 CREATE TABLE `Transaction` (
-  `transaction_id` int NOT NULL,
+  `transaction_id` int NOT NULL AUTO_INCREMENT,
   `seller_username` varchar(30) NOT NULL,
   `buyer_username` varchar(30) NOT NULL,
   `Itemid` int NOT NULL,
