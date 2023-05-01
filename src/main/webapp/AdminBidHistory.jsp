@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.onlineauctionsystem.pkg.*"%>
 <%@ page import ="java.io.*, java.util.*, javax.servlet.*, java.sql.*" %>
-<%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");%>
-
+<%
+if ((session.getAttribute("user") == null) || ((Boolean)(session.getAttribute("isStaff")) == false)) {
+%>
+You are not logged in<br/>
+<a href="login.jsp">Please Login</a>
+<%} 
+else {
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,7 +76,7 @@
             	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
             	%>
-            <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            <% if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false)) { %>
             	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
            <% }
             	%>
@@ -108,3 +114,7 @@
 	</div>
 </body>
 </html>
+
+<%
+}
+%>

@@ -4,9 +4,9 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 <%
-if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null)) {
+if ((session.getAttribute("user") == null) || ((Boolean)(session.getAttribute("isStaff")) == false)) {
 %>
-You are not logged in<br/>
+You are not logged in or you don't have the access<br/>
 <a href="login.jsp">Please Login</a>
 <%} 
 else {
@@ -51,8 +51,12 @@ else {
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
-		    <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+		    <% if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false)) { %>
             	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
+            <% if(((Boolean)(session.getAttribute("isAdmin")) == true)) { %>
+            	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
             	%>
 		    

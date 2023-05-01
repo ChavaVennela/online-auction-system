@@ -6,7 +6,7 @@
 
 <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-if ((session.getAttribute("user") == null) || (session.getAttribute("isAdmin")== null )) {
+if ((session.getAttribute("user") == null) || ((Boolean)(session.getAttribute("isAdmin")) == false)) {
 
 %>
 

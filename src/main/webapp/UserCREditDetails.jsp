@@ -3,7 +3,7 @@
 <%@ page import ="java.io.*, java.util.*, javax.servlet.*, java.sql.*" %>
 <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 
-if ((session.getAttribute("user") == null)) {
+if ((session.getAttribute("user") == null) || ((Boolean)(session.getAttribute("isStaff")) == false)) {
 
 %>
 
@@ -57,8 +57,12 @@ else {
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
-		    <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+		    <% if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false)) { %>
             	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
+            <% if(((Boolean)(session.getAttribute("isAdmin")) == true)) { %>
+            	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
             	%>
 	    </div>
@@ -75,9 +79,9 @@ else {
 		HttpSession ses = request.getSession();
 		String username = request.getParameter("username");
 		
-		if(username == null) {
+		/* if(username == null) {
 			username = (String)ses.getAttribute("user");
-		}
+		} */
 		ResultSet result = stmt.executeQuery("Select userlogin.name as name, userlogin.email as email, userlogin.password as password, userlogin.phone as phone, userlogin.addr as address, userlogin.interests as interests from userlogin where userlogin.username = '"+username+"'");
 		%>
 		<% 

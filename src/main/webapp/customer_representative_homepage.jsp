@@ -3,9 +3,9 @@
  <%@ page import ="java.sql.*" %>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null)) {
+if ((session.getAttribute("user") == null) || ((Boolean)(session.getAttribute("isStaff")) == false)) {
 %>
-You are not logged in<br/>
+You are not logged in or you don't have the access<br/>
 <a href="login.jsp">Please Login</a>
 <%} 
 else {

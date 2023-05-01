@@ -53,7 +53,7 @@ else {
             	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
             	%>
-            <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            <% if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false)) { %>
             	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
            <% }
             	%>

@@ -66,6 +66,12 @@ else {
                     <div class="action" style="margin-top: 30px;">
                         <button formaction="sales-report.jsp" class="btn btn-primary">Sales Summary</button>
                     </div>
+                    <div class="action" style="margin-top: 30px;">
+				      	<button formaction="AdminUsersPage.jsp" class="btn btn-primary"> Edit Customer Details </button>
+				    </div>
+				    <div class="action" style="margin-top: 30px;">
+				      	<button formaction="AdminProductsPage.jsp" class="btn btn-primary"> Edit Auctions/Products Details</button>
+				    </div>
                 </form>
             </div>
         </div>
