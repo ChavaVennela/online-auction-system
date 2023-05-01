@@ -3,7 +3,12 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-
+if ((session.getAttribute("user") == null)) {
+%>
+You are not logged in<br/>
+<a href="login.jsp">Please Login</a>
+<%} 
+else {
 %>
 <!DOCTYPE html>
 <html>
@@ -60,3 +65,6 @@ response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 	</t:BaseHtml>
 </body>
 </html>
+<%
+}
+%>
