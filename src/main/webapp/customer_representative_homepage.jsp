@@ -52,6 +52,7 @@ else {
 	    </div>
     	<div class="main">
     	<div class="login-form">
+    	 <h1> Customer representative dashboard</h1>
     	 <form method="GET">
 		    <div class="action" style="margin-top: 30px;">
 		      	<button formaction="AdminUsersPage.jsp" class="btn btn-primary"> Edit Customer Details </button>

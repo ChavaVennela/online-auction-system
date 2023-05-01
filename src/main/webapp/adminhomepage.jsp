@@ -54,6 +54,7 @@ else {
         </div>
         <div class="col-md-10 main">
             <div class="login-form">
+                <h1> Admin dashboard</h1>
                 <form method="GET">
                     <div class="action" style="margin-top: 30px;">
                         <button formaction="createCustomReps.jsp" class="btn btn-primary">Create a new customer representative</button>
