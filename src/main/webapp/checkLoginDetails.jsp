@@ -37,7 +37,7 @@ else if(role.equals("customer_rep")){
 		boolean isAdmin = false;
 		session.setAttribute("isAdmin", isAdmin);
 		
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("customer_representative_homepage.jsp");
 		} else {
 		out.println("Invalid Customer Rep. password <a href='login.jsp'>try again</a>");
 		}
@@ -52,7 +52,7 @@ else if(role.equals("admin")){
 		boolean isAdmin = true;
 		session.setAttribute("isAdmin", isAdmin);
 		
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("adminhomepage.jsp");
 		} else {
 		out.println("Invalid Admin password <a href='login.jsp'>try again</a>");
 		}
