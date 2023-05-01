@@ -100,7 +100,7 @@ else {
 									out.println("<td>" + category + "</td>");
 									out.println("<td>" + color + "</td>");
 								    out.println("<td><a href=\"ProductEditDetails.jsp?Itemid=" + Itemid + "\" id=\"submit\" class=\"btn btn-primary\">Edit</a></td>");
-
+								    out.println("<td><a href=\"AdminBidHistory.jsp?Itemid=" + Itemid + "\" id=\"submit\" class=\"btn btn-primary\">BidHistory</a></td>");
 									out.println("<td>&nbsp;</td>");
 									out.println("</tr>");
 								}
