@@ -46,7 +46,7 @@
 			/* out.print(newUsername);
 			out.print(newName); */
 			con.close();
-			response.sendRedirect("AdminUsersPage.jsp");
+			response.sendRedirect("home.jsp");
 			
 		} catch (Exception ex) {
 			out.print(ex);

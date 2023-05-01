@@ -3,7 +3,7 @@
  <%@ page import ="java.sql.*" %>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null) || (session.getAttribute("isAdmin") != null)) {
+if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null)) {
 %>
 You are not logged in<br/>
 <a href="login.jsp">Please Login</a>

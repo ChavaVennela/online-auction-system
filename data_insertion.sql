@@ -1,6 +1,12 @@
 CREATE DATABASE  IF NOT EXISTS `OnlineAuctionSystem`;
 USE `OnlineAuctionSystem`;
 
+
+
+INSERT INTO `Admin` VALUES ('admin','admin@gmail.com','admin','1111','admin');
+
+INSERT INTO `CustomerReps` VALUES ('customer','cr@gmail.com','cr','cr','1111', 'cr'), ('customer1','cr1@gmail.com','cr1','cr1','1111', 'cr1');
+
 INSERT INTO `userlogin` VALUES ('Vennela','chava.vinni@gmail.com','vinni','candy',NULL,NULL,'Laptop'),('Gayathr1','gr485@gmail.com','gaya3','heythere',NULL,NULL,'Mobile'),('Rohit','roh123@gmail.com','roh', 'abcda','415-567-1289','1500 Market St.','Accessory'),('Laxman','sanju@gmail.com','sanju', 'hello','345-567-1289',NULL,'Mobile');
 
 INSERT INTO `Item` VALUES (1, 1000,'vinni','2023-06-06 10:10:10',1200,50,1100, 1), (2, 1000,'vinni','2023-06-06 10:10:10',1200,100,1100, 1);
