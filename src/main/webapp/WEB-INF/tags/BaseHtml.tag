@@ -24,6 +24,9 @@ integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJ
 	          <a class="nav-link" href="search.jsp">Search</a>
 	        </li>
 	        <li class="nav-item">
+	          <a class="nav-link" href="productUploadPage.jsp">Add Product</a>
+	        </li>
+	        <li class="nav-item">
 	          <a class="nav-link" href="logout.jsp">Logout</a>
 	        </li>
 	        
