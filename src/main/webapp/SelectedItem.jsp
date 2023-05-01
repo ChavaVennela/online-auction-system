@@ -77,12 +77,12 @@ else {
 					Connection con = DBconnect.getConnection();		
 					Statement stmt = con.createStatement();
 					String Itemid = request.getParameter("Itemid");
-					ResultSet result = stmt.executeQuery("Select ItemDetails.Itemid as Itemid, ItemDetails.imgpath as imgpath, ItemDetails.category as category, ItemDetails.color as color, ItemDetails.brand as brand, ItemDetails.refurbished as refurbished, Item.Price as Price, Item.username as username, Item.expireTime as expireTime, Item.secretsellerprice as secretsellerprice, Item.increment as increment, Item.currentbid as currentbid, Item.availability as availability from ItemDetails, Item where Item.Itemid=ItemDetails.Itemid and Item.Itemid='"+Itemid+"'");
+					ResultSet result = stmt.executeQuery("Select ItemDetails.Itemname as Itemname, ItemDetails.Itemid as Itemid, ItemDetails.imgpath as imgpath, ItemDetails.category as category, ItemDetails.color as color, ItemDetails.brand as brand, ItemDetails.refurbished as refurbished, Item.Price as Price, Item.username as username, Item.expireTime as expireTime, Item.secretsellerprice as secretsellerprice, Item.increment as increment, Item.currentbid as currentbid, Item.availability as availability from ItemDetails, Item where Item.Itemid=ItemDetails.Itemid and Item.Itemid='"+Itemid+"'");
 					if(result.next()){
 						String path = result.getString("imgpath");
 			%>
 			<div>
-	    		<h3><%= result.getString("brand")%> <%= result.getString("color")%> </h3>
+	    		<h3><%= result.getString("Itemname")%></h3>
 	    	</div>
 	    	<hr>
 	    	<div class="container">
