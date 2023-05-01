@@ -92,7 +92,7 @@ else {
 				<%while(result.next()){
 					%>
 					<tr>
-					<td><%= result.getString("username")%></td>
+					<td><a href="mybids.jsp?username=<%=result.getString("username")%>"><%= result.getString("username")%></a></td>
 					<td><%= result.getString("pricelist")%></td>
 					</tr>
 				<% }%>

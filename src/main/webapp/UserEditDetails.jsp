@@ -142,7 +142,7 @@ else {
 					  <div class="action">
 					  	<button formaction="updateUser.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Update</button>
 				    	<button formaction="deleteuserself.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete my Account</button>
-				    	<button formaction="home.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
+				    	<button formaction="userhomepage.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
 				    </div>
 					</form>
 					
