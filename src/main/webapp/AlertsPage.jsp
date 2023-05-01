@@ -83,10 +83,10 @@ ResultSet alertRs = alertStmt.executeQuery();
 			 " AND b.bidId = (SELECT MAX(b2.bidId) FROM Bids b2 WHERE b2.username = b.username AND b2.Itemid = b.Itemid) AND b.autobid1 = TRUE AND i.currentbid > b.maxlimit";
 	PreparedStatement bidStmt = conn.prepareStatement(alertQuery);
 	bidStmt.setString(1, username);
-	ResultSet transactRs = alertStmt.executeQuery();
-     while (transactRs.next()) { %>
+	ResultSet transactRs1 = alertStmt.executeQuery();
+     while (transactRs1.next()) { %>
     		<p>You have won the auction for this product</p>
-            <p>Item Name: <%= transactRs.getString("ItemName") %></p>
+            <p>Item Name: <%= transactRs1.getString("ItemName") %></p>
             <hr>
     <% } %>
     
