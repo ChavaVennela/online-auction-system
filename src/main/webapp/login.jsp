@@ -127,6 +127,14 @@ body {
       <div class="input-field">
         <input type="password" placeholder="Password" name="password" autocomplete="new-password">
       </div>
+      <div class="input-field">
+      <label for="role">Role:</label>
+      <select id="role" name="role">
+        <option value="user">User</option>
+        <option value="customer_rep">Customer Representative</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
     </div>
     <div class="action">
     	<button formaction="checkLoginDetails.jsp" autofocus>Submit</button>
