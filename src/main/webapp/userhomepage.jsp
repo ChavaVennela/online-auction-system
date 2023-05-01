@@ -68,7 +68,7 @@ else {
     	<div class="login-form">
     	 <form method="GET">
 		    <div class="action" style="margin-top: 30px;">
-		      	<button formaction="UserEditDetails.jsp" class="btn btn-primary"> Update My Information </button>
+		      	<button formaction="UserEditDetails.jsp" class="btn btn-primary"> View / Update My Information </button>
 		    </div>
 		    <div class="action" style="margin-top: 30px;">
 		      	<button formaction="mybids.jsp" class="btn btn-primary"> My Bids</button>

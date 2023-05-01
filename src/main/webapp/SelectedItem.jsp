@@ -89,7 +89,6 @@ else {
 	    				<hr>
 	    				<div>
 	    					<p>Current Bid: <%= result.getString("currentbid") %></p>
-	    					<p>Number of Bids: </p> 
 	    				</div>
 	    				<div>
 	    				<%
@@ -103,6 +102,7 @@ else {
 	    					<button id="place_bid" onclick="location.href='place_bid.jsp?Itemid=<%= result.getString("Itemid")%>'" style="width:200px" type="button" class="btn btn-primary">Place Bid</button>
 	    				<%} %>	
 	    					<button onclick="location.href='bidHistory.jsp?Itemid=<%= result.getString("Itemid")%>'" style="width:200px" type="button" class="btn btn-primary">Bid History</button>
+	    					<br><br>
 	    					<ul class = "unordered list">
 	    						<li>No delivery charges!</li>
 					    		<li>Fast and Safe delivery</li>

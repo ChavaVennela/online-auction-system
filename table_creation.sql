@@ -26,6 +26,7 @@ CREATE TABLE `CustomerReps` (
 DROP TABLE IF EXISTS `Admin`;
 CREATE TABLE `Admin` (
   `username` varchar(30) NOT NULL,
+  `name` varchar(50) NOT NULL DEFAULT 'Admin',
   `email` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   `phone` varchar(12) DEFAULT NULL,

@@ -1,10 +1,7 @@
 CREATE DATABASE  IF NOT EXISTS `OnlineAuctionSystem`;
 USE `OnlineAuctionSystem`;
 
-
-
-INSERT INTO `Admin` VALUES ('admin','admin@gmail.com','admin','1111','admin');
-
+INSERT INTO `Admin` VALUES ('admin','Admin1','admin@gmail.com','admin','1111','admin');
 INSERT INTO `CustomerReps` VALUES ('customer','cr@gmail.com','cr','cr','1111', 'cr'), ('customer1','cr1@gmail.com','cr1','cr1','1111', 'cr1');
 
 INSERT INTO `userlogin` VALUES ('Vennela','chava.vinni@gmail.com','vinni','candy',NULL,NULL,'Laptop'),('Gayathr1','gr485@gmail.com','gaya3','heythere',NULL,NULL,'Mobile'),('Rohit','roh123@gmail.com','roh', 'abcda','415-567-1289','1500 Market St.','Accessory'),('Laxman','sanju@gmail.com','sanju', 'hello','345-567-1289',NULL,'Mobile');

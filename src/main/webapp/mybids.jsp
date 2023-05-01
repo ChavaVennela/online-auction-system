@@ -70,7 +70,7 @@ else {
 					<div class="main-box clearfix">
 					    
 						<div class="table-responsive">
-						    <h1>Bids table for </h1>
+						    <h1>List of all bids made by: </h1>
 							<table class="table user-list">
 							<thead>
 								<tr>

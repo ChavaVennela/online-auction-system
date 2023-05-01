@@ -58,8 +58,5 @@ else if(role.equals("admin")){
 		}
 	
 }
-out.println("Invalid Admin password <a href='login.jsp'>try again</a>");
-out.println(role);
-out.println(role.equals("user"));
 
 %>

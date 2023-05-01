@@ -83,6 +83,15 @@ else {
 			username = (String)ses.getAttribute("user");
 		}
 		ResultSet result = stmt.executeQuery("Select userlogin.name as name, userlogin.email as email, userlogin.password as password, userlogin.phone as phone, userlogin.addr as address, userlogin.interests as interests from userlogin where userlogin.username = '"+username+"'");
+		if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false))
+		{
+			result = stmt.executeQuery("Select CustomerReps.name as name, CustomerReps.email as email, CustomerReps.password as password, CustomerReps.phone as phone, CustomerReps.addr as address from CustomerReps where CustomerReps.username = '"+username+"'");
+		}
+		if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == true))
+		{
+			result = stmt.executeQuery("Select Admin.name as name, Admin.email as email, Admin.password as password, Admin.phone as phone, Admin.addr as address from Admin where Admin.username = '"+username+"'");
+		}
+		
 		%>
 		<% 
 		if(result.next()){
@@ -133,13 +142,19 @@ else {
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
-					  <div class="form-group row">
+					 <% if(((Boolean)(session.getAttribute("isStaff")) == true))
+					 {  %>
+	
+					  <% }
+					 	else{%>
+					 	<div class="form-group row">
 					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Interests</label>
 					    <div class="col-sm-10">
 					      <input type="text" class="form-control" name="interests" value='<%=result.getString("interests")%>' style="width:50%;">
 					      <%out.println("<input type='hidden' id='username' name='username' value='" + username + "'>"); %>
 					    </div>
 					  </div>
+					 	<%} %>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
@@ -148,8 +163,13 @@ else {
 						</div>
 					  </div>
 					  <div class="action">
+					  	<% if(((Boolean)(session.getAttribute("isStaff")) == true))
+					 	{  }
+					 	else{%>
+					 	
 					  	<button formaction="updateUser.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Update</button>
 				    	<button formaction="deleteuserself.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete my Account</button>
+				    	<%}%>
 				    	<button formaction="userhomepage.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
 				    </div>
 					</form>

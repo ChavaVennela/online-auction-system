@@ -37,6 +37,7 @@
 			out.println("<p>Your question has been submitted.</p>");
 			
 		} catch (Exception e) {
+			out.println("<p>Your question has not been submitted, as this current user does not have the permission to submit a question.</p>");
 			e.printStackTrace();
 		} finally {
 			if (stmt != null) {
