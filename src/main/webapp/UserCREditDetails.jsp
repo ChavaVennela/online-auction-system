@@ -2,18 +2,28 @@
     pageEncoding="UTF-8" import="com.onlineauctionsystem.pkg.*"%>
 <%@ page import ="java.io.*, java.util.*, javax.servlet.*, java.sql.*" %>
 <%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+
 if ((session.getAttribute("user") == null)) {
+
 %>
+
 You are not logged in<br/>
+
 <a href="login.jsp">Please Login</a>
+
 <%} 
+
 else {
+
 %>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Product-Edit-Details-Page</title>
+<title>User-Edit-Details-Page</title>
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <link href="./StandardTemp.css" rel="stylesheet" type="text/css">
@@ -49,7 +59,7 @@ else {
 		    <a href="#contact">Contact</a>
 	    </div>
 	    <div class="main">
-			<h2>Product Information</h2>
+			<h2>User Information</h2>
 			
 	<%
 	try {
@@ -59,52 +69,69 @@ else {
 		Connection con = DBconnect.getConnection();		
 		Statement stmt = con.createStatement();
 		HttpSession ses = request.getSession();
-		String Itemid = request.getParameter("Itemid");
+		String username = request.getParameter("username");
 		
-		
-		ResultSet result = stmt.executeQuery("Select ItemDetails.Itemname as Itemname, ItemDetails.category as category, ItemDetails.color as color, ItemDetails.brand as brand from ItemDetails where ItemDetails.Itemid = '"+Itemid+"'");
+		if(username == null) {
+			username = (String)ses.getAttribute("user");
+		}
+		ResultSet result = stmt.executeQuery("Select userlogin.name as name, userlogin.email as email, userlogin.password as password, userlogin.phone as phone, userlogin.addr as address, userlogin.interests as interests from userlogin where userlogin.username = '"+username+"'");
 		%>
 		<% 
 		if(result.next()){
 	 %>
 			<form method="POST">
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Product name</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Name</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="Itemname" value='<%=result.getString("Itemname")%>' style="width:50%;">
+					      <input type="text" class="form-control" name="name" value='<%=result.getString("name")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Category</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Email</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="category" value='<%=result.getString("category")%>' style="width:50%;">
+					      <input type="text" class="form-control" name="email" value='<%=result.getString("email")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Color</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Password</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="color" value='<%=result.getString("color")%>' style="width:50%;">
+					      <input type="text" class="form-control" name="password" value='<%=result.getString("password")%>' style="width:50%;">
 					    </div>
 					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
 					  <div class="form-group row">
-					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Brand</label>
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Phone</label>
 					    <div class="col-sm-10">
-					      <input type="text" class="form-control" name="brand" value='<%=result.getString("brand")%>' style="width:50%;">
-					        <%out.println("<input type='hidden' id='Itemid' name='Itemid' value='" + Itemid + "'>"); %>
+					      <input type="text" class="form-control" name="phone" value='<%=result.getString("phone")%>' style="width:50%;">
 					    </div>
 					  </div>
-					 
-					    
-					    
+					  <div style="font-size: 10px;">
+					    <br>
+					  </div>
+					  <div class="form-group row">
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Address</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" name="address" value='<%=result.getString("address")%>' style="width:50%;">
+					    </div>
+					  </div>
+					  <div style="font-size: 10px;">
+					    <br>
+					  </div>
+					  <div class="form-group row">
+					    <label for="inputProductname" class="col-sm-2 col-form-label py-0" style="width:30%;">Interests</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" name="interests" value='<%=result.getString("interests")%>' style="width:50%;">
+					      <%out.println("<input type='hidden' id='username' name='username' value='" + username + "'>"); %>
+					    </div>
+					  </div>
 					  <div style="font-size: 10px;">
 					    <br>
 					  </div>
@@ -113,9 +140,9 @@ else {
 						</div>
 					  </div>
 					  <div class="action">
-					  	<button formaction="updateProduct.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Update</button>
-				    	<button formaction="deleteitem.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete product</button>
-				    	<button formaction="AdminProductsPage.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
+					  	<button formaction="updateCRUser.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Update</button>
+				    	<button formaction="delete-user.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete my Account</button>
+				    	<button formaction="AdminUsersPage.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
 				    </div>
 					</form>
 					
@@ -135,5 +162,7 @@ else {
 </body>
 </html>
 <%
+
 }
+
 %>

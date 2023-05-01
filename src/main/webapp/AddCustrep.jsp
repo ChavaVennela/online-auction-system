@@ -59,7 +59,7 @@
 			con.close();
 			out.print("Insert Succeeded!");
 			String user=newUserName;
-			response.sendRedirect("createCustomReps.jsp");
+			response.sendRedirect("customer_representative_homepage.jsp");
 			
 		} catch (Exception ex) {
 			out.print(ex);
