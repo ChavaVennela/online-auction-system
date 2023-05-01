@@ -3,6 +3,15 @@
 <!--Import some libraries that have classes that we need -->
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
+<%
+response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+if ((session.getAttribute("user") == null)) {
+%>
+You are not logged in<br/>
+<a href="login.jsp">Please Login</a>
+<%} 
+else {
+%>
 
 <!DOCTYPE html>
 <html>
@@ -40,7 +49,7 @@
 	<div>
     	<div class="sidebar">
 		    <a href="#about">About</a>
-		    <a href="#services">Services</a>
+		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="#clients">Clients</a>
 		    <a href="#contact">Contact</a>
 		    
@@ -116,3 +125,6 @@
     </div>
 </body>
 </html>
+<%
+}
+%>

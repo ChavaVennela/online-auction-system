@@ -3,7 +3,7 @@
  <%@ page import ="java.sql.*" %>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-if ((session.getAttribute("user") == null)) {
+if ((session.getAttribute("user") == null) || (session.getAttribute("isAdmin") == null)) {
 %>
 You are not logged in<br/>
 <a href="login.jsp">Please Login</a>
@@ -46,7 +46,7 @@ else {
 	<div>
     	<div class="sidebar">
 		    <a href="#about">About</a>
-		    <a href="#services">Services</a>
+		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="#clients">Clients</a>
 		    <a href="#contact">Contact</a>
 	    </div>
