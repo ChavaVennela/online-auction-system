@@ -104,3 +104,15 @@ CREATE TABLE `Q/A` (
    FOREIGN KEY (`customer_rep`) 
    REFERENCES CustomerReps(`username`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `Alerts`;
+CREATE TABLE `Alerts` (
+  `alertid` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `Itemid` int NOT NULL,
+  `is_new_alert` bool default True,
+  `is_transaction` bool default False,
+   PRIMARY KEY (`alertid`),
+   FOREIGN KEY (`username`) 
+   REFERENCES userlogin(`username`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;

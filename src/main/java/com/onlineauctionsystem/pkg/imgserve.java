@@ -49,6 +49,13 @@ public class imgserve extends HttpServlet {
 	    int minIncrement = Integer.parseInt(request.getParameter("minincrement"));
 	    boolean avail = true;
 	    
+//	    String a = request.getParameter("abcd");
+//	    System.out.println("hi world");
+//	    System.out.println(a);
+//	    if(a == null) {
+//	    	System.out.println("checked null");
+//	    }
+	    
 	    String expiryTime = request.getParameter("exptime");
 	    boolean isRefurbished = false;
 	    if(isRefurbishedStr != null && isRefurbishedStr.equals("on")) {

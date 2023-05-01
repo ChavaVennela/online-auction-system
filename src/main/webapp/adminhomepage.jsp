@@ -2,13 +2,13 @@
     pageEncoding="UTF-8" import="com.onlineauctionsystem.pkg.*"%>
  <%@ page import ="java.sql.*" %>
 <%
-response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-if ((session.getAttribute("user") == null) || (session.getAttribute("isAdmin") == null)) {
+if ((session.getAttribute("user") == null) || ((Boolean)(session.getAttribute("isAdmin")) == false)) {
 %>
 You are not logged in<br/>
 <a href="login.jsp">Please Login</a>
 <%} 
 else {
+	response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 %>
 <!DOCTYPE html>
 <html>
@@ -51,6 +51,10 @@ else {
             <a href="userhomepage.jsp">Profile</a>
             <a href="qna.jsp">Q/A</a>
             <a href="#contact">Contact</a>
+            <% if(((Boolean)(session.getAttribute("isAdmin")) == true)) { %>
+            	<a href="adminhomepage.jsp">Admin Page</a>
+           <% }
+            	%>
         </div>
         <div class="col-md-10 main">
             <div class="login-form">
