@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="com.onlineauctionsystem.pkg.*"%>
  <%@ page import ="java.sql.*" %>
-<%response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+<%
 
 if ((session.getAttribute("user") == null)) {
 
@@ -41,6 +41,12 @@ else {
 	        <li class="nav-item">
 		          <a class="nav-link" href="productUploadPage.jsp">Add Product</a>
 		        </li>
+		    <% if(((Boolean)(session.getAttribute("isStaff")) == false)) { %>
+	        	<li class="nav-item">
+            	<a class="nav-link" href="AlertsPage.jsp">Alerts</a>
+            	</li>
+           <% }
+            	%>
 	        <li class="nav-item">
 	          <a class="nav-link" href="logout.jsp">Logout</a>
 	        </li>

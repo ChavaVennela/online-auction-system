@@ -34,6 +34,12 @@ else {
 	        <li class="nav-item">
 		          <a class="nav-link" href="productUploadPage.jsp">Add Product</a>
 		        </li>
+		     <% if(((Boolean)(session.getAttribute("isStaff")) == false)) { %>
+	        	<li class="nav-item">
+            	<a class="nav-link" href="AlertsPage.jsp">Alerts</a>
+            	</li>
+           <% }
+            	%>
 	         <li class="nav-item">
 	          <a class="nav-link" href="logout.jsp">Logout</a>
 	        </li>
