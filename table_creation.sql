@@ -8,7 +8,7 @@ CREATE TABLE `userlogin` (
   `password` varchar(50) NOT NULL,
   `phone` varchar(12) DEFAULT NULL,
   `addr` varchar(200) DEFAULT NULL,
-  `interests` varchar(5000) NOT NULL,
+  `interests` varchar(5000) default NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
