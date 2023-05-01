@@ -37,5 +37,15 @@ DO
 	AND NOT EXISTS (
     SELECT * FROM Transaction WHERE seller_username = Item.username AND buyer_username = Bids.username AND Itemid = Item.Itemid
   );
+  
+DELIMITER $$
+CREATE TRIGGER update_alerts
+AFTER INSERT ON `Transaction`
+FOR EACH ROW
+BEGIN
+    INSERT INTO Alerts (username, Itemid, is_new_alert)
+    VALUES (NEW.buyer_username, NEW.Itemid, TRUE);
+END $$
+DELIMITER ;
     
 SET GLOBAL event_scheduler = ON;
