@@ -20,6 +20,8 @@ INSERT INTO `Item` VALUES (7, 100,'dm','2023-06-06 10:10:10',10,50,10, 1);
 INSERT INTO `ItemDetails` VALUES (7,'Razor Laptop','Laptop','silver','Razor',0,'razerlaptop.jpg');
 INSERT INTO `Transaction` VALUES (5, 'dm', 'sanju', 7);
 
+INSERT INTO `Bids` VALUES(1, 'sanju', 1, 1100, 1200, 0), (2, 'gaya3', 2, 1200, 400, 0);
+
 CREATE EVENT update_item
 ON SCHEDULE EVERY 1 minute
 DO
