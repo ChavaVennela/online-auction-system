@@ -71,7 +71,7 @@ else {
 				<div class="col-lg-12">
 					<div class="main-box clearfix">
 						<div class="table-responsive">
-						    <h1 style="text-align: center;">Sales Report</h1>
+						    <h1>Sales Report</h1>
 						    
 						    
 						    
@@ -121,7 +121,7 @@ else {
 									out.println("</tr>");
 								}
 								
-								out.println("<h1>Total Earnings: $" + priceInt + "</h1>");
+								out.println("<h2>Total Earnings on the site: $" + priceInt + "</h2>");
 								// Clean up
 								rs.close();
 								stmt.close();
