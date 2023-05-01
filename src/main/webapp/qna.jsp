@@ -53,7 +53,7 @@ else {
     	<div class="sidebar">
 		    <a href="#about">About</a>
 		    <a href="userhomepage.jsp">Profile</a>
-		    <a href="#clients">Clients</a>
+		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
 	    </div>
     	<div class="main">
