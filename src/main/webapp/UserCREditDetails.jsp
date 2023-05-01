@@ -57,6 +57,10 @@ else {
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
+		    <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
 	    </div>
 	    <div class="main">
 			<h2>User Information</h2>
@@ -141,7 +145,7 @@ else {
 					  </div>
 					  <div class="action">
 					  	<button formaction="updateCRUser.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Update</button>
-				    	<button formaction="delete-user.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete my Account</button>
+				    	<button formaction="delete-user.jsp" id="submit" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Delete Account</button>
 				    	<button formaction="AdminUsersPage.jsp" class="btn btn-primary" style="margin: 4px 2px; padding: 13px 25px;">Cancel</button>
 				    </div>
 					</form>

@@ -45,6 +45,10 @@ integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJ
             	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
             	%>
+            <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
 		    <jsp:invoke fragment="sidething"/>
 	    </div>
 	

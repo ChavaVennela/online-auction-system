@@ -64,10 +64,14 @@
     	<div class="sidebar">
 		    <a href="#about">About</a>
 		    <a href="UserEditDetails.jsp">Profile</a>
-		    <a href="#clients">Clients</a>
+		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
 		    <% if(((Boolean)(session.getAttribute("isAdmin")) == true)) { %>
             	<a href="adminhomepage.jsp">Admin Page</a>
+           <% }
+            	%>
+            <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
            <% }
             	%>
 	    </div>

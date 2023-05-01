@@ -59,6 +59,10 @@ else {
             	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
             	%>
+            <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
 	    </div>
 		<div class="main">
 			<% try {

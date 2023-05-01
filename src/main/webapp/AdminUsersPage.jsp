@@ -4,7 +4,6 @@
 <%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 <%
-response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
 if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null)) {
 %>
 You are not logged in<br/>
@@ -52,6 +51,10 @@ else {
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
+		    <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
 		    
 		 </div>
     	<div class="main">

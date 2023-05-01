@@ -47,6 +47,10 @@ else {
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
 		    <a href="#contact">Contact</a>
+		    <% if(((Boolean)(session.getAttribute("isStaff")) == true)) { %>
+            	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
+           <% }
+            	%>
 	    </div>
 	    <div class="main">
 			<h2>Product Information</h2>
