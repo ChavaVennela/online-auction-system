@@ -45,7 +45,7 @@ else {
     <div class="row">
         <div class="col-md-2 sidebar">
             <a href="#about">About</a>
-            <a href="#services">Services</a>
+            <a href="userhomepage.jsp">Profile</a>
             <a href="#clients">Clients</a>
             <a href="#contact">Contact</a>
         </div>
