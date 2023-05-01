@@ -66,9 +66,9 @@ ResultSet alertRs = alertStmt.executeQuery();
     <% 
     // Display the alerts for the transactions
 	String transactQuery = "SELECT it.ItemName, t.Itemid FROM Transaction t, ItemDetails it WHERE t.buyer_username=? AND t.Itemid=it.Itemid";
-	PreparedStatement transactStmt = conn.prepareStatement(alertQuery);
+	PreparedStatement transactStmt = conn.prepareStatement(transactQuery);
 	transactStmt.setString(1, username);
-	ResultSet transactRs = alertStmt.executeQuery();
+	ResultSet transactRs = transactStmt.executeQuery();
      while (transactRs.next()) { %>
     		<p>You have won the auction for this product</p>
             <p>Item Name: <%= transactRs.getString("ItemName") %></p>
@@ -79,14 +79,19 @@ ResultSet alertRs = alertStmt.executeQuery();
     <hr>
     <% 
     // Display the alerts for the transactions
-	String bidQuery = "SELECT i.Itemid, d.Itemname, i.currentbid FROM Item i, ItemDetails d, Bids b WHERE i.Itemid = d.Itemid AND i.Itemid = b.Itemid" +
-			 " AND b.bidId = (SELECT MAX(b2.bidId) FROM Bids b2 WHERE b2.username = b.username AND b2.Itemid = b.Itemid) AND b.autobid1 = TRUE AND i.currentbid > b.maxlimit";
-	PreparedStatement bidStmt = conn.prepareStatement(alertQuery);
+	String bidQuery = "SELECT i.Itemid, d.Itemname, i.currentbid, i.expireTime FROM Item i, ItemDetails d, Bids b WHERE i.Itemid = d.Itemid AND i.Itemid = b.Itemid AND b.username = ? " +
+			  "AND b.bidId = (SELECT MAX(bidId) FROM Bids WHERE username = ? AND Itemid = i.Itemid) AND b.autobid1 = TRUE AND i.currentbid > b.maxlimit";
+	PreparedStatement bidStmt = conn.prepareStatement(bidQuery);
 	bidStmt.setString(1, username);
-	ResultSet transactRs1 = alertStmt.executeQuery();
-     while (transactRs1.next()) { %>
-    		<p>You have won the auction for this product</p>
-            <p>Item Name: <%= transactRs1.getString("ItemName") %></p>
+	bidStmt.setString(2, username);
+	ResultSet bidRs1 = bidStmt.executeQuery();
+     while (bidRs1.next()) { %>
+    		<p>Alert! Someone else placed a bid which is more than your maximum limit for this item</p>
+            <p>Item Name: <%= bidRs1.getString("ItemName") %></p>
+            <p>Current Bid: <%= bidRs1.getString("currentbid") %></p>
+            <p>Expire Time: <%= bidRs1.getString("expireTime") %></p>
+            <% out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='SelectedItem.jsp?Itemid=" + bidRs1.getString("Itemid") + "';\">view details</button>"); %>
+            
             <hr>
     <% } %>
     
