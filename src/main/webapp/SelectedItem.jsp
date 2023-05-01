@@ -125,10 +125,7 @@ else {
 	    				<span><%= result.getString("category") %></span>
 	    			</span>
 				</li>		    			
-		 </ul>	
-			<hr>
-			<h2>Q/A</h2>
-					
+		 </ul>						
 			<%}
 					else{%>
 					<div>Something Went wrong with the database sorry for inconvenience</div>
