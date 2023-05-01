@@ -5,7 +5,7 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null) || (session.getAttribute("isAdmin") != null)) {
+if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null)) {
 %>
 You are not logged in<br/>
 <a href="login.jsp">Please Login</a>
@@ -93,7 +93,7 @@ else {
 									out.println("<td>" + name + "</td>");
 									out.println("<td>" + username + "</td>");
 									out.println("<td>" + email + "</td>");
-								    out.println("<td><a href=\"UserEditDetails.jsp?username=" + username + "\" id=\"submit\" class=\"btn btn-primary\">Edit</a></td>");
+								    out.println("<td><a href=\"UserCREditDetails.jsp?username=" + username + "\" id=\"submit\" class=\"btn btn-primary\">Edit</a></td>");
 									out.println("</tr>");
 								}
 								

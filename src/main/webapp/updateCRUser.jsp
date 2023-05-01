@@ -46,12 +46,12 @@
 			/* out.print(newUsername);
 			out.print(newName); */
 			con.close();
-			response.sendRedirect("userhomepage.jsp");
+			response.sendRedirect("AdminUsersPage.jsp");
 			
 		} catch (Exception ex) {
 			out.print(ex);
 			out.print("update failed");
-			out.print("<a href='UserEditDetails.jsp'>Update</a>");
+			out.print("<a href='AdminUsersPage.jsp'>Update</a>");
 		}
 	
 %>

@@ -5,7 +5,7 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*"%>
 <%
 response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null) || (session.getAttribute("Admin") != null)) {
+if ((session.getAttribute("user") == null) || (session.getAttribute("isStaff") == null)) {
 %>
 You are not logged in<br/>
 <a href="login.jsp">Please Login</a>
@@ -49,7 +49,7 @@ else {
     	<div class="sidebar">
 		    <a href="#about">About</a>
 		    <a href="userhomepage.jsp">Profile</a>
-		    <a href="qna.jsp">Q/A</a>
+		    <a href="#clients">Clients</a>
 		    <a href="#contact">Contact</a>
 		    
 		 </div>
