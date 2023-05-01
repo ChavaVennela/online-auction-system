@@ -32,10 +32,10 @@ else {
 	          <a class="nav-link active" aria-current="page" href="home.jsp">Home</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link" href="logout.jsp">Logout</a>
+	          <a class="nav-link" href="search.jsp">Search</a>
 	        </li>
 	        <li class="nav-item">
-	          <a class="nav-link">Disabled</a>
+	          <a class="nav-link" href="logout.jsp">Logout</a>
 	        </li>
 	      </ul>
 	    </div>
