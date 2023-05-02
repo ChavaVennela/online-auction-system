@@ -79,6 +79,9 @@ else {
 		    <div class="action" style="margin-top: 30px;">
 		      	<button formaction="mybids.jsp" class="btn btn-primary"> My Bids</button>
 		    </div>
+		    <div class="action" style="margin-top: 30px;">
+		      	<button formaction="auctions_won.jsp" class="btn btn-primary"> Auctions Won</button>
+		    </div>
 		  </form>
 		</div>
 				
