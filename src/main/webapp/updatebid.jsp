@@ -62,7 +62,6 @@ try {
 				String username2=res1.getString("username");
 				int price2=Integer.parseInt(res1.getString("pricelist"));
 				if(autobid1.equals("1")){
-					if(price1<price2){
 						String insert1="Insert into Bids(username, Itemid, pricelist, maxlimit, autobid1) VALUES(?, ?, ?, ?, ?)";
 						PreparedStatement ps1=con.prepareStatement(insert1);
 						ps1.setString(1, username1);
@@ -75,7 +74,6 @@ try {
 						String updateItem1="UPDATE Item SET currentbid='"+String.valueOf(finalval)+"' where Itemid='"+Itemid+"'";
 						PreparedStatement pstmt1 = con.prepareStatement(updateItem1);
 						int rowsUpdated1 = pstmt1.executeUpdate();
-					}
 				}
 			}
 		}

@@ -24,7 +24,7 @@ INSERT INTO `ItemDetails` VALUES (7,'Razor Laptop','Laptop','silver','Razor',0,'
 INSERT INTO `Transaction` VALUES (5, 'dm', 'sanju', 7);
 
 INSERT INTO `Bids` VALUES(1, 'sanju', 1, 1100, 1200, 0), (2, 'gaya3', 2, 1200, 400, 0);
-INSERT INTO `Alerts` VALUES('sanju', 1);
+
 
 
 CREATE EVENT update_item
