@@ -139,7 +139,9 @@ else {
 	    				<span><%= result.getString("category") %></span>
 	    			</span>
 				</li>		    			
-		 </ul>						
+		 </ul>		
+		 <button onclick="location.href='similarItems.jsp?Itemid=<%= result.getString("Itemid")%>&category=<%= result.getString("category")%>'" style="width:200px" type="button" class="btn btn-primary">Similar Items</button>
+	    							
 			<%}
 					else{%>
 					<div>Something Went wrong with the database sorry for inconvenience</div>
