@@ -125,7 +125,7 @@ ResultSet alertRs = alertStmt.executeQuery();
             <hr>
     <% } %>
     
-    <h3>General Alerts for bids you placed:</h3>
+    <h3>General Alerts for Automatic bids you placed:</h3>
     <hr>
     <% 
     // Display the alerts for the transactions
@@ -141,6 +141,27 @@ ResultSet alertRs = alertStmt.executeQuery();
             <p>Current Bid: <%= bidRs1.getString("currentbid") %></p>
             <p>Expire Time: <%= bidRs1.getString("expireTime") %></p>
             <% out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='SelectedItem.jsp?Itemid=" + bidRs1.getString("Itemid") + "';\">view details</button>"); %>
+            
+            <hr>
+    <% 
+     } %>
+     
+     <h3>General Alerts for Manual bids you placed:</h3>
+    <hr>
+    <% 
+    // Display the alerts for the transactions
+	String manbidQuery = "SELECT i.Itemid, d.Itemname, i.currentbid, i.expireTime FROM Item i, ItemDetails d, Bids b WHERE i.Itemid = d.Itemid AND i.Itemid = b.Itemid AND b.username = ? " +
+			  "AND b.bidId = (SELECT MAX(bidId) FROM Bids WHERE username = ? AND Itemid = i.Itemid) AND i.currentbid > b.pricelist";
+	PreparedStatement manbidStmt = conn.prepareStatement(manbidQuery);
+	manbidStmt.setString(1, username);
+	manbidStmt.setString(2, username);
+	ResultSet manbidRs1 = manbidStmt.executeQuery();
+     while (manbidRs1.next()) { %>
+    		<p>Alert! Someone else placed a bid which is more than your maximum limit for this item</p>
+            <p>Item Name: <%= manbidRs1.getString("ItemName") %></p>
+            <p>Current Bid: <%= manbidRs1.getString("currentbid") %></p>
+            <p>Expire Time: <%= manbidRs1.getString("expireTime") %></p>
+            <% out.println("<button type=\"button\" class=\"btn btn-primary\" onclick=\"location.href='SelectedItem.jsp?Itemid=" + manbidRs1.getString("Itemid") + "';\">view details</button>"); %>
             
             <hr>
     <% 
