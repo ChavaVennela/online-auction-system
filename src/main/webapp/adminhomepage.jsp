@@ -50,7 +50,7 @@ else {
             <a href="#about">About</a>
             <a href="userhomepage.jsp">Profile</a>
             <a href="qna.jsp">Q/A</a>
-            <a href="#contact">Contact</a>
+            <a href="contactus.jsp">Contact</a>
             <% if(((Boolean)(session.getAttribute("isAdmin")) == true)) { %>
             	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
