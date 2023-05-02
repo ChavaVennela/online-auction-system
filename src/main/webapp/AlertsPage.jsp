@@ -157,7 +157,7 @@ ResultSet alertRs = alertStmt.executeQuery();
 	manbidStmt.setString(2, username);
 	ResultSet manbidRs1 = manbidStmt.executeQuery();
      while (manbidRs1.next()) { %>
-    		<p>Alert! Someone else placed a bid which is more than your maximum limit for this item</p>
+    		<p>Alert! Someone else placed a bid which is more than your last bid for this item</p>
             <p>Item Name: <%= manbidRs1.getString("ItemName") %></p>
             <p>Current Bid: <%= manbidRs1.getString("currentbid") %></p>
             <p>Expire Time: <%= manbidRs1.getString("expireTime") %></p>

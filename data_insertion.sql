@@ -32,7 +32,7 @@ ON SCHEDULE EVERY 1 minute
 DO
   UPDATE Item SET  availability= false WHERE expireTime < NOW();
 
-CREATE EVENT `check_item_expired` 
+CREATE EVENT `check_item_expired1` 
 ON SCHEDULE EVERY 1 MINUTE
 DO 
 	INSERT INTO Transaction (seller_username, buyer_username, Itemid)
@@ -45,14 +45,5 @@ DO
     SELECT * FROM Transaction WHERE seller_username = Item.username AND buyer_username = Bids.username AND Itemid = Item.Itemid
   );
   
-DELIMITER $$
-CREATE TRIGGER update_alerts
-AFTER INSERT ON `Transaction`
-FOR EACH ROW
-BEGIN
-    INSERT INTO Alerts (username, Itemid, is_new_alert)
-    VALUES (NEW.buyer_username, NEW.Itemid, TRUE);
-END $$
-DELIMITER ;
     
 SET GLOBAL event_scheduler = ON;

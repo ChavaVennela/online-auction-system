@@ -9,6 +9,10 @@ username: cr
 password: cr
 
 Customer Representative 2:
-username: cr 
-password: cr
+username: cr1 
+password: cr1
+
+user creds:
+username: sanju
+pwd: hello
 
