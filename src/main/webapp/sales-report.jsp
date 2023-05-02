@@ -83,6 +83,7 @@ else {
 						    
 						    
 							<table class="table peritem-list">
+							
 							<thead>
 								<tr>
 								    <th><span>Itemname</span></th>
@@ -122,6 +123,7 @@ else {
 								}
 								
 								out.println("<h2>Total Earnings on the site: $" + priceInt + "</h2>");
+								out.println("<h1>Total Earnings per Item</h1>");
 								// Clean up
 								rs.close();
 								stmt.close();
@@ -136,6 +138,7 @@ else {
 						  
 						  
 						  <table class="table peritemtype-list">
+						    <h1>Total Earnings per category</h1>
 							<thead>
 								<tr>
 								    <!-- <th><span>Itemname</span></th> -->
@@ -186,6 +189,7 @@ else {
 						  </table>   
 						  
 						   <table class="table perselleruser-list">
+						   <h1>Total Earnings of each seller</h1>
 							<thead>
 								<tr>
 								    <!-- <th><span>Itemname</span></th> -->
@@ -238,6 +242,7 @@ else {
 						   
 						  
 						   <table class="table perbuyer-list">
+						   <h1>Total Expenditure of each buyer </h1>
 							<thead>
 								<tr>
 								    <!-- <th><span>Itemname</span></th> -->

@@ -71,6 +71,11 @@ else {
             	%>
 	    </div>
     	<div class="main">
+    	
+    	<form action="#." method="get" style="float: right;">
+	  <input type="text" name="searchTerm">
+	  <input type="submit" value="Search">
+      </form>
 	<h1>Question and Answer</h1>
 	
 	<h2>Ask a Question</h2>
