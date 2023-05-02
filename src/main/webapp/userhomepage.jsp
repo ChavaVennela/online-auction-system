@@ -60,7 +60,7 @@ else {
 		    <a href="#about">About</a>
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
-		    <a href="#contact">Contact</a>
+		    <a href="contactus.jsp">Contact</a>
 		    <% if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false)) { %>
             	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
            <% }
@@ -78,6 +78,9 @@ else {
 		    </div>
 		    <div class="action" style="margin-top: 30px;">
 		      	<button formaction="mybids.jsp" class="btn btn-primary"> My Bids</button>
+		    </div>
+		    <div class="action" style="margin-top: 30px;">
+		      	<button formaction="auctions_won.jsp" class="btn btn-primary"> Auctions Won</button>
 		    </div>
 		  </form>
 		</div>

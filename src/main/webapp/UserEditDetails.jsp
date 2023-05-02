@@ -62,7 +62,7 @@ else {
 		    <a href="#about">About</a>
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>
-		    <a href="#contact">Contact</a>
+		    <a href="contactus.jsp">Contact</a>
 		    <% if(((Boolean)(session.getAttribute("isStaff")) == true) && ((Boolean)(session.getAttribute("isAdmin")) == false)) { %>
             	<a href="customer_representative_homepage.jsp">Customer Rep. Page</a>
            <% }

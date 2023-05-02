@@ -46,7 +46,7 @@ integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJ
 		    <a href="#about">About</a>
 		    <a href="userhomepage.jsp">Profile</a>
 		    <a href="qna.jsp">Q/A</a>	   
-		    <a href="#contact">Contact</a>
+		    <a href="contactus.jsp">Contact</a>
 		    <% if(((Boolean)(session.getAttribute("isAdmin")) == true)) { %>
             	<a href="adminhomepage.jsp">Admin Page</a>
            <% }
