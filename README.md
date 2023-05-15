@@ -7,7 +7,7 @@ The project requires the implementation of a user interface using HTML, CSS a My
 To use the system, a local web server that will host the web application (Tomcat) as well as a MySQL server must be installed.
 
 <h1>OAS</h1>
-Online Auction System is a company that lets users buy and sell items in an online auction. Each team's BuyMe site will be restricted to a specific category of items with at least 3 hierarchical subcategories, which require specific fields to be filled for those kinds of items.
+Online Auction System is a company that lets users buy and sell items in an online auction. This site will be restricted to a specific category of items with at least 3 hierarchical subcategories(in our case gadgets such as Laptops, Mobiles, Accessories), which require specific fields to be filled for those kinds of items.
 
 <h1>Features</h1>
 The online auction system will have three classes of users: end-users, customer representatives, and administrative staff members.
