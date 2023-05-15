@@ -25,7 +25,7 @@ Administrative staff members can create accounts for customer representatives an
 Auctions involve a seller posting an item for sale, starting an auction, which will close at a specified date and time. The seller also posts an initial price, an increment for bids, and a (secret) minimum price. Potential buyers post bids as part of the auction, and the user with the highest bid at closing time gets to buy the item. Automatic bidding, which involves the buyer setting a secret upper limit on how much they are willing to pay, is also a feature of the system.
 
 <h1>Requirements</h1>
-To use this system, you need to have a web server (Tomcat), MySQL server, Java, Javascript, and JDBC installed. You also need to clone the project repository and set up the database schema and tables. Detailed instructions on how to set up and use the system are provided in the project documentation.
+To use this system, you need to have a web server (Tomcat), MySQL server, Java, Javascript, and JDBC installed. You also need to clone the project repository and set up the database schema and tables.
 
 <h1> Sample Login Details </h1>
 Admin Credentials:
