@@ -4,7 +4,7 @@ This project involves designing and implementing a relational database system fo
 The project requires the implementation of a user interface using HTML, CSS a MySQL database server, and connectivity between the user interface and the database server using Java, Javascript, and JDBC.
 
 <h1>Installation</h1>
-To use the system, a local web server that will host the web application (Tomcat) as well as a MySQL server must be installed. The necessary resources will be provided on how to install the servers.
+To use the system, a local web server that will host the web application (Tomcat) as well as a MySQL server must be installed.
 
 <h1>OAS</h1>
 OAS is a company that lets users buy and sell items in an online auction. Each team's BuyMe site will be restricted to a specific category of items with at least 3 hierarchical subcategories, which require specific fields to be filled for those kinds of items.
