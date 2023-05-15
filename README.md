@@ -27,6 +27,25 @@ Auctions involve a seller posting an item for sale, starting an auction, which w
 <h1>Requirements</h1>
 To use this system, you need to have a web server (Tomcat), MySQL server, Java, Javascript, and JDBC installed. You also need to clone the project repository and set up the database schema and tables. Detailed instructions on how to set up and use the system are provided in the project documentation.
 
+<h1> Sample Login Details </h1>
+Admin Credentials:
+username: admin 
+password: admin
+
+Customer Representative Credentials:
+
+Customer Representative 1:
+username: cr 
+password: cr
+
+Customer Representative 2:
+username: cr1 
+password: cr1
+
+user creds:
+username: sanju
+password: hello
+
 
 
 
