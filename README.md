@@ -1,7 +1,7 @@
 <h1> Introduction </h1>
 This project involves designing and implementing a relational database system for an online auction website called OAS/BuyMe. The system is intended to support users buying and selling items in an online auction similar to eBay.
 
-The project requires the implementation of a user interface using HTML, CSS a MySQL database server, and connectivity between the user interface and the database server using Java, Javascript, and JDBC.
+The project requires the implementation of a user interface using HTML, CSS, JSPs, a MySQL database server, and connectivity between the user interface and the database server using Java, Javascript, and JDBC.
 
 <h1>Installation</h1>
 To use the system, a local web server that will host the web application (Tomcat) as well as a MySQL server must be installed.
