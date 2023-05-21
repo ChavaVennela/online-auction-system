@@ -42,9 +42,9 @@ Customer Representative 2:<br>
 username: cr1 <br>
 password: cr1 <br>
 
-<strong>user creds:</strong>
-username: sanju
-password: hello
+<strong>user creds:</strong> <br>
+username: sanju <br>
+password: hello <br>
 
 
 
